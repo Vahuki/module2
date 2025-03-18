@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 60%;
+            margin: 50px auto;
+        }
+        input {
+            width: 24%;
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px; ;
+        }
+        fieldset {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <input type="text" name="output" id="output" style="width: 100%;"> <br>
+            <input type="button" id="s(" value="(">
+            <input type="button" id="s)" value=")">
+            <input type="button" id="s%" value="%">
+            <input type="button" id="ac" value="AC">
+            <br>
+            <input type="button" id="s7" value="7">
+            <input type="button" id="s8" value="8">
+            <input type="button" id="s9" value="9">
+            <input type="button" id="s/" value="/">
+            <br>
+            <input type="button" id="s4" value="4">
+            <input type="button" id="s5" value="5">
+            <input type="button" id="s6" value="6">
+            <input type="button" id="sx" value="x">
+            <br>
+            <input type="button" id="s1" value="1">
+            <input type="button" id="s2" value="2">
+            <input type="button" id="s3" value="3">
+            <input type="button" id="-" value="-">
+            <br>
+            <input type="button" id="s0" value="0">
+            <input type="button" id="s." value=".">
+            <input type="button" id="result" value="=" style="background-color: rgb(25, 125, 255); color: white;" onclick="cal()">
+            <input type="button" id="s+" value="+">
+        </fieldset>
+    </form>
+    <script src="./cal.js"></script>
+</body>
+</html>

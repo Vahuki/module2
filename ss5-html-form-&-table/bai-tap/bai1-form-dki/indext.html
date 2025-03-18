@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        form{
+        form,table{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 24px;
             border: 1px solid black;
@@ -26,24 +26,60 @@
                 height: 30px;
                 width: 100%;
             }
-            
+            input{
+                font-size: 20px;
+            }
+            table {
+                width: 80%;
+                border-collapse: collapse; 
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                width: 200px;
+                text-align: left;
+            }
+            p{
+                color: red;
+                font-size: 20px;
+            }
     </style>
 </head>
 <body>
-    <form method="post" action="">
+    <form method="post" action=""> 
         <h2>Mô tả</h2>
-        <label for="s1">Họ và tên</label><br>
-        <input class="height" type="text" name="s1" id="s1"><br><br>
-        <label for="s2">Email</label><br>
-        <input class="height" type="email" name="s2" id="s2"><br><br>
-        <label for="s3">Số điện thoại</label><br>
-        <input class="height" type="tel" name="s3" id="s3"><br><br>
-        <label for="s4">Giới tính</label><br>
-        <input type="radio" name="s4" id="s4" value="Nam">Nam
-        <input type="radio" name="s4" id="s4" value="Nữ">Nữ
+        <label for="name">Họ và tên</label><br>
+        <input id="name" class="height" type="text" name="s1" ><br><br>
+        <label for="email">Email</label><br>
+        <input id="email" class="height" type="email" name="s2" ><br><br>
+        <label for="tel">Số điện thoại</label><br>
+        <input id="tel" class="height" type="tel" name="s3" ><br><br>
+        <label for="gt">Giới tính</label><br>
+        <input id="gt" type="radio" name="gender"  value="Nam">Nam
+        <input id="gt" type="radio" name="gender"  value="Nữ">Nữ
         <br><br>
-        <input class="btn" type="submit" value="Đăng ký" >
-        <input class="btn" type="reset" value="Reset">
+        <input id="submit" class="btn" type="button" value="Đăng ký" onclick="login()">
+        <input id="reset" class="btn" type="reset" value="Reset" onclick="reset()">
+        <p id="tb"></p>
     </form>
+    <table>
+        <tr>
+            <th>Họ và tên: </th>
+            <td id="_name"></td>
+        </tr>
+        <tr>
+            <th>Email: </th>
+            <td id="_email"></td>
+        </tr>
+        <tr>
+            <th>Số điện thoại: </th>
+            <td id="_tel"></td>
+        </tr>
+        <tr>
+            <th>Giới tính: </th>
+            <td id="_gender"></td>
+    </table>
+    
+    <script src="login.js"></script>
 </body>
 </html>
