@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 60%;
+            font-size: 20px;
+            text-align: center;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td:nth-child(odd),th:nth-child(odd){
+            border-right: 1px solid black;
+        }
+        input{
+            font-size: 20px;
+            margin-left: 30%;
+            
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>BMI</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid black;"></td>
+            <td style="border: 1px solid black;"></td>
+        </tr>
+        <tr>    
+            <td>BMI < 18.5</td>
+            <td id="under">Underweight</td>
+        </tr>
+        <tr>
+            <td>18.5 <= BMI < 25</td>
+            <td id="normal">Normal</td>
+        </tr>
+        <tr>
+            <td>25 <= BMI < 30</td>
+            <td id="over">Overweight</td>
+        </tr>
+        <tr>
+            <td>30 <= BMI</td>
+            <td id="obese">Obese</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <br>
+    <input type="text" id="weight" placeholder="Enter your weight in kg">
+    <br><br>
+    <input type="text" id="height" placeholder="Enter your height in cm">
+    <br><br>
+    <input type="button" value="Calculator" onclick="calculate()">
+    <br><br>
+    <input type="reset" value="Reset" onclick="reload()">
+    <script>
+        function reload(){
+            location.reload();
+        }
+        function calculate(){
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            let bmi = weight / ((height/100) * (height/100));
+            let under = document.getElementById("under");
+            let normal = document.getElementById("normal");
+            let over = document.getElementById("over");
+            let obese = document.getElementById("obese");
+            if(bmi < 18.5){
+                under.style.backgroundColor = "yellow";
+            }else if(bmi < 25){
+                normal.style.backgroundColor = "yellow";
+
+            }else if(bmi < 30){
+                over.style.backgroundColor = "yellow";
+
+            }else{
+                obese.style.backgroundColor = "yellow";
+            }
+        }
+    </script>
+</body>
+</html>
