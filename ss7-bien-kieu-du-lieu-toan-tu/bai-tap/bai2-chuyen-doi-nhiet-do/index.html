@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="nb" id="nb" placeholder="Độ c(Celsius)">
+    <input type="button" value="Chuyển đổi" onclick="convert()">
+    <p id="result"></p>
+    <script>
+        function convert(){
+            let nb = document.getElementById('nb').value;
+            let result = (nb * 9/5) + 32;
+            document.getElementById('result').innerHTML ='Result: '+ result + ' ℉ ';
+        }
+    </script>
+</body>
+</html>

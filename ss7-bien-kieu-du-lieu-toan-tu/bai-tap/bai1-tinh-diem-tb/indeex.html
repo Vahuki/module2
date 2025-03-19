@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 50px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            font-size:25px;
+        }
+        .btn > td{
+            border: none;
+        }
+        input{
+            padding: 10px 15px;
+            font-size: 20px;
+            color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Môn Học</th>
+            <th>Điểm</th>
+        </tr>
+        <tr>
+            <td>Vật Lý</td>
+            <td id="vl"></td>
+        </tr>
+        <tr>
+            <td>Hóa Học</td>
+            <td id="hh"></td>
+        </tr>
+        <tr>
+            <td>Sinh Học</td>
+            <td id="sh"></td>
+        </tr>   
+        <tr>
+            <th>Tổng</th>
+            <td id="sum"></td>
+        </tr>
+        <tr>
+            <th>Điểm Trung Bình</th>
+            <td id="adv"></td>
+        </tr>
+        <tr class="btn">
+            <td></td>
+            <td><input type="button" value="Nhập điểm" onclick="check()"></td>
+        </tr>
+    </table>
+    <script>
+        function check() {
+            let vl,sh,hh;
+            vl = prompt("Nhập điểm môn Vật Lý: ");
+            sh = prompt("Nhập điểm môn Sinh Học: ");
+            hh = prompt("Nhập điểm môn Hóa Học: ");
+            let sum = parseInt(vl) + parseInt(sh) + parseInt(hh);
+            let adv = sum/3;
+            document.getElementById("vl").innerHTML = vl;
+            document.getElementById("hh").innerHTML = hh;
+            document.getElementById("sh").innerHTML = sh;
+            document.getElementById("sum").innerHTML = sum;
+            document.getElementById("adv").innerHTML = adv;
+        }
+        
+    </script>
+</body>
+</html>

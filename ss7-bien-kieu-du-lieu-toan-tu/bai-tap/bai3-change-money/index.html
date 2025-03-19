@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change-money{
+            display: flex;
+            text-align: center;
+            gap: 50px;
+            padding: 50px;
+        }
+        label{
+            text-transform:capitalize;  
+            font-size: 20px;
+            padding: 10px 15px;
+        }   
+        input,select{
+            padding: 10px 15px;
+            font-size: 20px;
+            color: green;
+        }
+        p{
+            padding-left: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="change-money">
+        <div>
+            <label for="amount">amount</label><br>
+            <input type="number" name="amount" id="amount" placeholder="Nhập số tiền">
+        </div>
+        <div>
+            <label for="from">from currency</label><br>
+            <select id="from">
+                <option value="1">VN</option>
+                <option value="25000">USD</option>
+            </select>
+        </div>
+        <div>
+            <label for="to">to currency</label><br>
+            <select id="to">
+                <option value="1">VN</option>
+                <option value="25000">USD</option>
+            </select>
+        </div>
+        <input type="button" value="Convert" onclick="convert()">
+    </div>
+    <p id="result">Result: </p>
+    <script>
+        function convert(){
+            let amount = document.getElementById('amount').value;
+            let from = document.getElementById('from').value;
+            let to = document.getElementById('to').value;
+            let result = amount * from / to;
+            document.getElementById('result').innerHTML = 'Result: ' + result;
+        }
+    </script>
+</body>
+</html>
