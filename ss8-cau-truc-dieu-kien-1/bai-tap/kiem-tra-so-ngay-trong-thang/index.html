@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size:44px;
+        }
+        input{
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+        #result{
+            font-size: 24px;
+            color: rgb(18, 0, 216);
+        }
+    </style>
+</head>
+<body>
+    <h1>Kiểm tra só ngày trong tháng</h1>
+    <input type="text" name="month" id="month" placeholder="Nhập tháng">
+    <input type="button" id="btn" value="Check" onclick="check()"><br><br>
+    <span id="result">Đây là chỗ hiện thị kết quả</span>
+    <script>
+        function check(){
+            let month = document.getElementById('month').value;
+            let day;
+            switch (month) {
+                case '1':
+                case '3':
+                case '5':
+                case '7':
+                case '8':
+                case '10':
+                case '12':
+                    day = 31;
+                    break;
+                case '4':
+                case '6':
+                case '9':
+                case '11':
+                    day = 30;
+                    break;
+                case '2':
+                    day = 28;
+                    break;
+                default:
+                    day = 0;
+                    break;
+            }
+            if(day == 0){
+                document.getElementById('result').innerHTML = 'Tháng không hợp lệ';
+            }else if(day == 28){
+                document.getElementById('result').innerHTML = `Tháng ${month} có ${day} hoặc 29 ngày`;
+            }
+            else{
+                document.getElementById('result').innerHTML = `Tháng ${month} có ${day} ngày`;
+            }
+        }
+    </script>
+</body>
+</html>
