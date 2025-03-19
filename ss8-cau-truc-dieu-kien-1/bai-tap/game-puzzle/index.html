@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+       .container-fluid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .puzzles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+        .puzzles img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="puzzles">
+            <img id="img1" src="" alt="" />
+            <img id="img2" src="" alt="" />
+            <img id="img3" src="" alt="" />
+            <img id="img4" src="" alt="" />
+            <img id="img5" src="" alt="" />
+            <img id="img6" src="" alt="" />
+            <img id="img7" src="" alt="" />
+            <img id="img8" src="" alt="" />
+            <img id="img9" src="" alt="" />
+        </div>
+      </div>
+    <script src="./main.js"></script>
+</body>
+</html>
