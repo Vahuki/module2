@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mucTT = +prompt("Nhập vào số điện đã sử dụng: ");
+        let tienDien = 0;
+        if(mucTT <= 50){
+            tienDien = mucTT * 1893;
+        }else if(mucTT <= 100){
+            tienDien = 50 * 1893 + (mucTT - 50) * 1956;
+        }else if(mucTT <= 200){
+            tienDien = 50 * 1893 + 50 * 1956 + (mucTT - 100) * 2271;
+        }else if(mucTT <= 300){
+            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + (mucTT - 200) * 2860;
+        }else if(mucTT <= 400){
+            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + (mucTT - 300) * 3197;
+        }else{
+            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + 100 * 3197 + (mucTT - 400) * 3302;
+        }
+        alert("Số tiền điện phải trả là: " + tienDien + " VND");
+    </script>
+</body>
+</html>

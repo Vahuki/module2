@@ -5,21 +5,26 @@
         <style>
             h1{
                 font-size: 44px;
-                color: red;
+                color: rgb(0, 179, 255);
                 text-align: center;
                 margin-top: 100px;
             }
             input:nth-child(even){
-                margin-left:35%;                
+                margin-left:45%;                
             }
             input{
                 font-size: 20px;
                 padding: 5px 10px;
-                margin-left: 50px;
+                margin-left: 30px;
             }
             #btnNo{
                 position: absolute;
 
+            }
+            p{
+                font-size: 100px;
+                color: rgb(255, 0, 0);
+                text-align: center;
             }
         </style>
     </head>
@@ -27,10 +32,11 @@
         <h1 >Do you love me?</h1>
         <input type="button" value=" YES " onclick="yesClick()" />
         <input type="button" id="btnNo" value="  NO  " onmouseover="noHover()" />
+        <p id="reslt"></p>
         <script type="text/javascript">
             function yesClick()
             {
-                alert("Yes. you are right ");
+                document.getElementById('reslt').innerHTML = 'I love you too <3';
             }
             function noHover()
             {

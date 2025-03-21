@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = +prompt('Nhập cạnh a: ');
+        let b = +prompt('Nhập cạnh b: ');   
+        let c = +prompt('Nhập cạnh c: ');
+        if (a > 0 && b > 0 && c > 0) {
+            if (a + b > c && a + c > b && b + c > a) {
+                if (a == b && b == c) {
+                    alert('Đây là tam giác đều');
+                } else if (a == b || a == c || b == c) {
+                    alert('Đây là tam giác cân');
+                } else {
+                    alert('Đây là tam giác thường');
+                }
+            } else {
+                alert('Đây không phải là tam giác');
+            }
+        } else {
+            alert('Nhập sai dữ liệu');
+        }
+    </script>
+</body>
+</html>
