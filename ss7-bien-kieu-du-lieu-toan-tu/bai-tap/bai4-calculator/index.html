@@ -6,12 +6,12 @@
     <title>Document</title>
     <style>
         form {
-            width: 60%;
+            width: 400px;
             margin: 50px auto;
             
         }
         input {
-            width: 24%;
+            width: 70px;
             height: 50px;
             font-size: 20px;
             text-align: center;
@@ -29,31 +29,31 @@
 <body>
     <form action="#">
         <fieldset>
-            <input type="text" name="output" id="output" style="width: 100%;"> <br>
-            <input type="button" id="s(" value="(">
-            <input type="button" id="s)" value=")">
-            <input type="button" id="s%" value="%">
-            <input type="reset" id="ac" value="AC">
+            <input type="text" name="output" id="output" style="width: 100%;" disabled> <br>
+            <input type="button"  value="(" onclick=" btnclick('(')">
+            <input type="button"  value=")" onclick=" btnclick(')')">
+            <input type="button"  value="%" onclick=" btnclick('%')">
+            <input type="reset"   value="AC" >
             <br>
-            <input type="button" id="s7" value="7">
-            <input type="button" id="s8" value="8">
-            <input type="button" id="s9" value="9">
-            <input type="button" id="s/" value="/">
+            <input type="button"  value="7" onclick=" btnclick(7)">
+            <input type="button"  value="8" onclick=" btnclick(8)">
+            <input type="button"  value="9" onclick=" btnclick(9)">
+            <input type="button"  value="/" onclick=" btnclick('/')">
             <br>
-            <input type="button" id="s4" value="4">
-            <input type="button" id="s5" value="5">
-            <input type="button" id="s6" value="6">
-            <input type="button" id="sx" value="*">
+            <input type="button"  value="4" onclick=" btnclick(4)">
+            <input type="button"  value="5" onclick=" btnclick(5)">
+            <input type="button"  value="6" onclick=" btnclick(6)">
+            <input type="button"  value="*" onclick=" btnclick('*')">
             <br>
-            <input type="button" id="s1" value="1">
-            <input type="button" id="s2" value="2">
-            <input type="button" id="s3" value="3">
-            <input type="button" id="s-" value="-">
+            <input type="button"  value="1" onclick=" btnclick(1)">
+            <input type="button"  value="2" onclick=" btnclick(2)">
+            <input type="button"  value="3" onclick=" btnclick(3)">
+            <input type="button"  value="-" onclick=" btnclick('-')">
             <br>
-            <input type="button" id="s0" value="0">
-            <input type="button" id="s." value=".">
-            <input type="button" id="result" value="=" class="result" style="background-color: rgb(25, 125, 255); color: white;" onclick="cal()">
-            <input type="button" id="s+" value="+">
+            <input type="button"  value="0" onclick=" btnclick(0)">
+            <input type="button"  value="." onclick=" btnclick('.')">
+            <input type="button"  value="=" class="result" style="background-color: rgb(25, 125, 255); color: white;" onclick="cal()">
+            <input type="button"  value="+" onclick=" btnclick('+')">
         </fieldset>
     </form>
     <script src="./cal.js"></script>

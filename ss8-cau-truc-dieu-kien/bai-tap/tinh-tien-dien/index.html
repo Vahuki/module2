@@ -8,19 +8,25 @@
 <body>
     <script>
         let mucTT = +prompt("Nhập vào số điện đã sử dụng: ");
+        const muc1 = 1893;
+        const muc2 = 1956;
+        const muc3 = 2271;
+        const muc4 = 2860;
+        const muc5 = 3197;
+        const muc6 = 3302;
         let tienDien = 0;
         if(mucTT <= 50){
-            tienDien = mucTT * 1893;
+            tienDien = mucTT * muc1;
         }else if(mucTT <= 100){
-            tienDien = 50 * 1893 + (mucTT - 50) * 1956;
+            tienDien = 50 * muc1 + (mucTT - 50) * muc2;
         }else if(mucTT <= 200){
-            tienDien = 50 * 1893 + 50 * 1956 + (mucTT - 100) * 2271;
+            tienDien = 50 * muc1 + 50 * muc2 + (mucTT - 100) * muc3;
         }else if(mucTT <= 300){
-            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + (mucTT - 200) * 2860;
+            tienDien = 50 * muc1 + 50 * muc2 + 100 * muc3 + (mucTT - 200) * muc4;
         }else if(mucTT <= 400){
-            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + (mucTT - 300) * 3197;
+            tienDien = 50 * muc1 + 50 * muc2 + 100 * muc3 + 100 * muc4 + (mucTT - 300) * muc5;
         }else{
-            tienDien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + 100 * 3197 + (mucTT - 400) * 3302;
+            tienDien = 50 * muc1 + 50 * muc2 + 100 * muc3 + 100 * muc4 + 100 * muc5 + (mucTT - 400) * muc6;
         }
         alert("Số tiền điện phải trả là: " + tienDien + " VND");
     </script>

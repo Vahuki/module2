@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 95%;
+            height: auto;
+            margin: 50px auto;
+            border: 1px solid black;
+            border-collapse: collapse ;
+        }
+        td,th{
+            border: 1px solid black;
+            width: 10%;
+            height: 80px;
+            font-size: 16px;
+            text-align: center;
+        }
+        input{
+            width: 90%;
+            height: 90%;
+            font-size: 16px;
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            /* CSS cho màn hình nhỏ hơn hoặc bằng 768px */
+           body{
+            padding: 0;
+            margin: 0;
+           }
+            table{
+            width: 100%;
+           }
+            th{
+             font-size: 14px;
+           }
+           input{
+            width: 80%;
+            text-overflow: ;
+            font-size: 12px;
+           }
+
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <legend>
+            <tr>
+                <th colspan="9" id="date" style="background-color: rgb(162, 239, 239);font-size:24px;"></th>
+            </tr>
+            <tr style="background-color: rgb(255, 255, 160);">
+                <th>Vị trí</th>
+                <th>Nhân viên</th>
+                <th>Tiền thối</th>
+                <th>Gà bán được</th>
+                <th>Tổng bán</th>
+                <th>Hủy (Gà)</th>
+                <th>Chuyển khoản</th>
+                <th>Thiếu</th>
+                <th onclick="result()">Tổng tiền</th>
+            </tr>
+            <tr>
+                <td><input type="text" id="vt"></td>
+                <td>Kiên</td>
+                <td><input type="text" id="thoi"></td>
+                <td><input type="text" id="ga"></td>
+                <td><input type="text" id="ban"></td>
+                <td><input type="text" id="huy"></td>
+                <td><input type="text" id="ck"></td>
+                <td><input type="text" id="thieu"></td>
+                <td><input type="text" id="sum"></td>
+            </tr>
+        </legend>
+    </table>
+
+    <script>
+        const now = new Date();
+        const d = now.getDate();
+        const m = now.getMonth() + 1;
+        const y = now.getFullYear();
+        document.getElementById("date").innerHTML = `${d}/${m}/${y}`;
+        function result(){
+            let sum = 0;
+            let thoi = +document.getElementById("thoi").value;
+            let ga = +document.getElementById("ga").value;
+            let ban = +document.getElementById("ban").value;
+            let ck = +document.getElementById("ck").value;
+            let thieu = +document.getElementById("thieu").value;
+            sum = ban * 25 + ga * 5 + thoi - ck - thieu;
+            document.getElementById('sum').value = sum + `( ${ck} ck)`;
+        }
+    </script>
+</body>
+</html>
