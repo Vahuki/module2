@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let bcc; 
+        bcc = "<table border='1 solid'; width='800' height='500' cellspacing = '0' cellpadding='20'>"
+        for(let i=2 ;i<=9;i++){
+            for(let j=1;j<=10;j++){
+                bcc += "<td>"+j+"x"+i+"=" + i*j +"</td>"
+            }
+            bcc += "</tr>"
+        }
+        bcc += "</table>"
+        document.writeln(bcc);
+    </script>
+</body>
+</html>

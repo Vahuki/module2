@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="button" value="Tính tổng" onclick="sum()">
+</head>
+<body>
+    <script>
+        let i = 1;
+        while (i < 90){
+            document.writeln("<hr width = "+i+ "%>");
+            i++;
+        }
+        function sum(){
+            let n = +prompt("Enter Number: ");
+            let sum = 0;
+            while( n != -1){
+                sum += n;
+                n = +prompt("Enter Number: ");
+                alert(n);
+            }
+            alert(sum);
+        }
+    </script>
+</body>
+</html>
