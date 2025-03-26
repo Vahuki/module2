@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let C = +prompt("nhap nhiet do: ");
+        while(1){
+            if(C<20){
+                C = +prompt("vui long tang nhiet do : ");
+            }else if(C>100){
+                C = +prompt("vui long giam nhiet do : ");
+            }
+            else{
+                break;
+            }
+        }
+        alert12(C+ '℃');
+    </script>
+</body>
+</html>
