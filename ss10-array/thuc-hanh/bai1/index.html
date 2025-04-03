@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtValue"/>
+    <input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"/>
+    <input type="button" id="btnDisplay" value="Display" onclick="display_array();"/>
+    <div id="result"></div>
+</body>
+<script>
+    var arr = [];
+
+    function add_element_to_array() {
+        var value = document.getElementById("txtValue").value;
+        if (value) {
+            arr.push(value);
+            document.getElementById("txtValue").value = "";
+            alert("Added: " + value);
+        } else {
+            alert("Please enter a value.");
+        }
+    }
+
+    function display_array() {
+        let e = "<hr>";
+        e += "<h2>Array Elements</h2>";
+        for (let i = 0; i < arr.length; i++) {
+            e +="Element " + i + " = " + arr[i] + "<br>";
+        }
+        document.getElementById("result").innerHTML = e;
+    }
+</script>
+</html>

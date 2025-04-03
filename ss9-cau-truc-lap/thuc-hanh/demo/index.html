@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function in5sochan(){
+            //in 5 so chan dau tien bat dau tu 5
+            let count=0,start=5;
+            while(count<5){
+                
+                if(start%2==0){
+                    document.writeln(start+"<br>");
+                    count++;
+                }
+                start++;
+                
+                
+            }
+        }
+        function inHinhVuong(){
+            for(let i=0;i<6;i++){
+
+                for(let j=0;j<i;j++){
+                    document.writeln("&nbsp")
+                }
+                for(let j=6;j>i;j--){
+                    document.writeln("*")
+                }
+                document.writeln("<br>")
+                
+            }
+        }
+        inHinhVuong()
+    </script>
+</body>
+</html>

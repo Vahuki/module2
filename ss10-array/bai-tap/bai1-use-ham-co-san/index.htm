@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1: Nối các phần tử trong mảng thành chuỗi
+        //Cách 1: Sử dụng join()
+        let arr1 = ["Red", "Green", "White", "Black"];
+        console.log(arr1); // Red Green White Black]
+        let str1 = arr1.join(' ');
+        console.log(str1); // Red Green White Black
+
+
+        //Cách 2: Sử dụng reduce()
+        let arr2 = ["Red", "Green", "White", "Black"];
+        let str2 = arr2.reduce((accumulator, currentValue) => accumulator + ' ' + currentValue);
+        console.log(str2); // Red Green White Black
+
+        //Cách 3: Sử dụng forEach()
+        let arr3 = ["Red", "Green", "White", "Black"];
+        let str3 = '';
+        arr3.forEach((item, index) => {
+            str3 += item + ' ';
+        });
+        console.log(str3); // Red Green White Black
+
+
+        //Bài 2: Chèn dấu "-" giữa các số chẵn trong chuỗi
+        //Cách 1: Sử dụng replace()
+        let str4 = '025468';
+        let str5 = str4.replace(/([02468])(?=[02468])/g, '$1-');    
+        console.log(str5); // Kết quả: 0-254-6-8
+        //Cách 2: Sử dụng split() và join()
+        let str6 = '025468';
+        let arr4 = str6.split('').map((item, index) => {
+            return (item % 2 === 0 && str6[index + 1] % 2 === 0) ? item + '-' : item;
+        });
+        let str7 = arr4.join('');
+        console.log(str7); // Kết quả: 0-254-6-8
+        //Cách 3: Sử dụng for loop
+        let str8 = '025468';
+        let result = '';
+        for (let i = 0; i < str8.length; i++) {
+            result += str8[i];
+            if (i < str8.length - 1 && str8[i] % 2 === 0 && str8[i + 1] % 2 === 0) {
+                result += '-';
+            }
+        }
+        console.log(result); // Kết quả: 0-254-6-8
+        //Cách 4: Sử dụng forEach()
+        let str9 = '025468';    
+        let result2 = '';
+        str9.split('').forEach((item, index) => {
+            result2 += item;
+            if (index < str9.length - 1 && item % 2 === 0 && str9[index + 1] % 2 === 0) {
+                result2 += '-';
+            }
+        });
+        console.log(result2); // Kết quả: 0-254-6-8
+
+        
+
+        //Bài 3: Chuyển đổi chữ thường sang chữ hoa và ngược lại
+        //Đầu vào: 'The Quick Brown Fox'
+        //Kết quả: 'tHE qUICK bROWN fOX'
+
+        let str10 = 'The Quick Brown Fox';
+        let result3 = str10.split('').map((item) => {
+            return item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase();
+        }).join('');
+        console.log(result3); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 2: Sử dụng for loop
+        let str11 = 'The Quick Brown Fox';
+        let result4 = '';
+        for (let i = 0; i < str11.length; i++) {
+            if (str11[i] === str11[i].toUpperCase()) {
+                result4 += str11[i].toLowerCase();
+            } else {
+                result4 += str11[i].toUpperCase();
+            }
+        }
+        console.log(result4); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 3: Sử dụng forEach()
+        let str12 = 'The Quick Brown Fox';
+        let result5 = '';
+        str12.split('').forEach((item) => {
+            result5 += item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase();
+        });
+        console.log(result5); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 4: Sử dụng reduce()
+        let str13 = 'The Quick Brown Fox';
+        let result6 = str13.split('').reduce((accumulator, currentValue) => {
+            return accumulator + (currentValue === currentValue.toUpperCase() ? currentValue.toLowerCase() : currentValue.toUpperCase());
+        }, '');
+        console.log(result6); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 5: Sử dụng map()
+        let str14 = 'The Quick Brown Fox';
+        let result7 = str14.split('').map((item) => {
+            return item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase();
+        }).join('');
+        console.log(result7); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 6: Sử dụng for of loop
+        let str15 = 'The Quick Brown Fox';
+        let result8 = '';
+        for (let char of str15) {
+            if (char === char.toUpperCase()) {
+                result8 += char.toLowerCase();
+            } else {
+                result8 += char.toUpperCase();
+            }
+        }
+        console.log(result8); // Kết quả: 'tHE qUICK bROWN fOX'
+        //Cách 7: Sử dụng for in loop
+        let str16 = 'The Quick Brown Fox';
+        let result9 = '';
+        for (let i in str16) {
+            if (str16[i] === str16[i].toUpperCase()) {
+                result9 += str16[i].toLowerCase();
+            } else {
+                result9 += str16[i].toUpperCase();
+            }
+        }
+        console.log(result9); // Kết quả: 'tHE qUICK bROWN fOX'
+        
+
+    
+        
+    </script>
+</body>
+</html>

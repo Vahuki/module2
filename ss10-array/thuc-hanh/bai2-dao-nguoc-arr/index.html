@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        let x = [-3,5,1,3,2,10];
+        console.log("Original array: " + x);
+        let first = 0;
+        let last = x.length - 1;
+        while (first < last) {
+            let b = x[first];
+            x[first] = x[last];
+            x[last] = b;
+            first++;
+            last--;
+        }
+        console.log("array => :      " + x);
+
+        
+
+        function reverseArr(){
+            let x = [-3,5,1,3,2,4,10];
+            console.log("Original array: " + x);
+            let first = 0;
+            let last = x.length - 1;
+           for (let i = 0; i < x.length / 2; i++) {
+                let b = x[first];
+                x[first] = x[last];
+                x[last] = b;
+                first++;
+                last--;
+            }
+            console.log("Reversed array: " + x);
+        }
+
+        function find_x_in_array() {
+            let value = +prompt("Enter the value to find: ");
+            let x = [-3,5,1,3,2,10];
+            let index = -1;
+            for (let i = 0; i < x.length; i++) {
+                if (x[i] == value) {
+                    index = i;
+                    break;
+
+                }
+            }
+            if (index == -1) {
+                console.log("Value " + value + " not found in the array.");
+            }else {
+                console.log("Value " + value + " found at index " + index);
+            }
+
+        }
+
+        function minArr(){
+            let x = [-3,5,1,3,2,10];
+            let min = x[0];
+            for (let i = 1; i < x.length; i++) {
+                if (x[i] < min) {
+                    min = x[i];
+                }
+            }
+            console.log("Min value in array: " + min);
+        }
+      
+        function sumArr(){
+            let x = [-3,5,1,3,2,10];
+            let sum = 0;
+            for (let i = 0; i < x.length; i++) {
+                sum += x[i];
+            }
+            console.log("Sum of array: " + sum);
+        }
+       
+        function evenArr(){
+            let x = [-3,5,1,3,2,10];
+            let even = [];
+            for (let i = 0; i < x.length; i++) {
+                if (x[i] % 2 == 0) {
+                    even.push(x[i]);
+                }
+            }
+            console.log("Even numbers in array: " + even);
+        }
+       
+
+        let createArr = () => {
+            
+            let n = +prompt("Enter the number of elements in the array: ");
+            while (n >= 5 || n <= 0) {
+                n = +prompt("Please enter n trong khoang 0 den 5: ");
+            }
+            let x = [];
+            for (let i = 0; i < n; i++) {
+                x[i]= +prompt("Enter value for element " + i + ": ");
+            }
+            console.log("Array: " + x);
+        };
+
+        function mergeArr(){
+            let a = [1,2,3,4,5];
+            let b = [6,7,8,2,10];
+            let c = [];
+            let lengthC= a.length+ b.length;
+            for (let i = 0; i < lengthC; i++) {
+                if (i < a.length) {
+                    c[i] = a[i];
+                } else {
+                    c[i] = b[i - a.length];
+                }
+            }
+            console.log("Merged array: " + c);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function showArr(){
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+        console.log(a);
+        for(let i =0 ;i<a.length;i++){
+            console.log("Row "+i);
+            for(let j =0 ;j<a[i].length;j++){
+                console.log(a[i][j]);
+            }
+        }
+    };
+    
+    function countArr(){
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,"a", "b", "c", "d", "e"];
+        console.log(array);
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (typeof array[i] === 'number') {
+                count++;
+            }
+        }
+        console.log("Number of elements in the array: " + count);
+    } 
+    
+    function findkytu(){
+        let array = ["xin","-","chao","-","toi","-","la","-","ai"];
+        console.log(array);
+        let newArr = array.map(item => (item === "-" ? "_" : item)); 
+        console.log(newArr.join(""));
+    }
+</script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*bai1: Viết chương trình khởi tạo một mảng số nguyên gồm 10 
+        phần tử. Chương trình thực hiện tính và hiển thị xem 
+        có bao nhiêu số nguyên lớn hơn hoặc bằng 10.*/
+           
+           
+        // Khởi tạo mảng số nguyên gồm 10 phần tử
+        let arr = new Array(10);
+        function initArray_counttoTen() {
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = Math.floor(Math.random() * 20); // Tạo số ngẫu nhiên từ 0 đến 19
+            }
+            console.log("Mảng tạo ngẫu nhiên là: " + arr);
+            let count = 0;
+            let lonhon10 = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] >= 10) {
+                    lonhon10.push(arr[i]);
+                    count++;
+                }
+            }
+            console.log("Có " + count + " số nguyên lớn hơn hoặc bằng 10 trong mảng: " + lonhon10);
+        }
+
+        function elementMax(arr){
+            let max = arr[0]; // Giả sử phần tử đầu tiên là lớn nhất
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i]; // Cập nhật giá trị lớn nhất
+                }
+            }
+            return max; // Trả về giá trị lớn nhất
+        }
+        // Sum mảng x 
+        function sumArray() {
+            let x = [
+            [1,2,3,4],
+            [5,6,7,8],
+            [9,10,11,12],
+            [13,14,15,16]
+            ];
+            let sum = 0;
+            for (let i = 0; i < x.length; i++) {
+                for (let j = 0; j < x[i].length; j++) {
+                    sum += x[i][j]; // Cộng dồn giá trị của từng phần tử
+                }
+            }
+            return sum; // Trả về tổng
+        }   
+        // Tính tổng các hàng trong mảng x
+        function sumRow() {
+            let x = [
+                [1,2,3,4],
+                [5,6,7,8],
+                [9,10,11,12],
+                [13,14,15,16]
+            ];
+            for (let i = 0; i < x.length; i++) {
+                let sum = 0;
+                for (let j = 0; j < x[i].length; j++) {
+                    sum += x[i][j]; // Cộng dồn giá trị của từng phần tử trong hàng
+                }
+                console.log("Tổng hàng " + (i + 1) + " là: " + sum); // In ra tổng của từng hàng
+            }
+        }
+        // Tính tổng các cột trong mảng x
+        function sumColumn() {
+            let x = [
+                [1,2,3,4],
+                [5,6,7,8],
+                [9,10,11,12],
+                [13,14,15,16]
+            ];
+            for (let j = 0; j < x[0].length; j++) {
+                let sum = 0;
+                for (let i = 0; i < x.length; i++) {
+                    sum += x[i][j]; // Cộng dồn giá trị của từng phần tử trong cột
+                }
+                console.log("Tổng cột " + (j + 1) + " là: " + sum); // In ra tổng của từng cột
+            }
+        }
+        // Tính tổng các đường chéo trong mảng x
+        function sumDuongCheo() {
+            let x = [
+                [1,2,3,4],
+                [5,6,7,8],
+                [9,10,11,12],
+                [13,14,15,16]
+            ];
+            let sum = 0; // Tổng đường chéo chính
+            let sumPhu = 0; // Tổng đường chéo phụ
+            for (let i = 0; i < x.length; i++) {
+                sum += x[i][i]; // Cộng dồn giá trị của từng phần tử trên đường chéo chính
+                sumPhu += x[i][x.length - 1 - i]; // Cộng dồn giá trị của từng phần tử trên đường chéo phụ
+            }
+            console.log("Tổng đường chéo chính là: " + sum); // In ra tổng đường chéo chính
+            console.log("Tổng đường chéo phụ là: " + sumPhu); // In ra tổng đường chéo phụ
+        }
+
+    </script>
+</body>
+</html>

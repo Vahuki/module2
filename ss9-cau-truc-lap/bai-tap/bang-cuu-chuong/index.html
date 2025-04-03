@@ -10,8 +10,9 @@
         let bcc; 
         bcc = "<table border='1 solid'; width='800' height='500' cellspacing = '0' cellpadding='20'>"
         for(let i=2 ;i<=9;i++){
+            bcc += "<tr>"
             for(let j=1;j<=10;j++){
-                bcc += "<td>"+j+"x"+i+"=" + i*j +"</td>"
+                bcc += `<td> ${i}x${j}=${i*j}</td>`;
             }
             bcc += "</tr>"
         }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        let arr=[];
+        arr[0]=1;
+        arr[1]=1;
+        for(let i=2;i<20;i++){
+            arr[i]=arr[i-1]+arr[i-2]
+        }
+        console.log(arr);
+        */
+        function fibonacci(i) {
+            if (i <= 1) return i;
+            return fibonacci(i - 1) + fibonacci(i - 2);
+        }
+        function showFibonacciSeries(n) {
+            for (let i = 1; i < n; i++) {
+                console.log(fibonacci(i));
+
+                if(fibonacci(i)%5===0 && fibonacci(i) == 5 ){
+                    console.log(fibonacci(i)+": La So dau tien trong day chia het cho 5");
+                    
+                }
+            }
+        }
+        showFibonacciSeries(20);
+        sumFibonacci(20)
+        function sumFibonacci(n){
+            let sum = 0;
+            for (let i = 1; i < n; i++) {
+                sum += fibonacci(i);
+            }
+            document.writeln("<p style='color:red;'>Tong "+n+" so dau tien trong day Fibonacci la: "+ sum +"</p>");
+        }
+        
+    </script>
+</body>
+</html>
