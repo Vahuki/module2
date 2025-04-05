@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>K-Store</title>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="icon" href="./img/ChatGPT Image 04_40_33 5 thg 4, 2025.png" type="image/x-icon" />
+  
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+        <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" width="150" height="150" alt="logo" style=" opacity: 1;"/>
+    </div>
+    <div class="search">
+        <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
+        <button id="search-btn">Tìm kiếm</button>
+    </div>
+    <button id="cart-btn" onclick="openCart()" ><a href="./cart.html">Giỏ hàng (<span id="cart-count">0</span>)</a></button>
+  </header>
+
+  <main>
+    <div id="product-list"></div>
+  </main>
+
+    <footer>
+        <p>&copy; 2025 K-Store. All rights reserved.</p>
+        <p>Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM</p>
+        <p>Điện thoại: 0123 456 789</p>
+    </footer>
+
+  
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
