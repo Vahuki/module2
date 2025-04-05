@@ -10,16 +10,21 @@
 </head>
 <body>
   <header>
-    <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
-        <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" width="150" height="150" alt="logo" style=" opacity: 1;"/>
+    <div class="header-navbar">
+      <a href="">Đăng kí</a>
+      <a href="" style="border-left: 2px solid #fff;padding-left:10px;">Đăng nhập</a>
     </div>
-    <div class="search">
+    <div class="header-container">
+      <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+        <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" width="150" height="150" alt="logo" style=" opacity: 1;"/>
+      </div>
+      <div class="search">
         <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
         <button id="search-btn"><img src="./icon/search.svg" alt="search"></button>
-    </div>
-    <div class="cart">
-        <button class="navbar"><img src="./icon/list.svg" alt="list"></button>
-        <button id="cart-btn" onclick="window.location.href='./cart.html'" ><img src="./icon/cart4.svg" alt="cart">(<span id="cart-count">0</span>)</button>
+      </div>
+      <div class="cart">
+        <img width="50%" src="./icon/cart4.svg" alt="cart" onclick="window.location.href='./cart.html'"><span id="cart-count">0</span>
+      </div>
     </div>
   </header>
 
