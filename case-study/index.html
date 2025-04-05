@@ -15,9 +15,12 @@
     </div>
     <div class="search">
         <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
-        <button id="search-btn">Tìm kiếm</button>
+        <button id="search-btn"><img src="./icon/search.svg" alt="search"></button>
     </div>
-    <button id="cart-btn" onclick="openCart()" ><a href="./cart.html">Giỏ hàng (<span id="cart-count">0</span>)</a></button>
+    <div class="cart">
+        <button class="navbar"><img src="./icon/list.svg" alt="list"></button>
+        <button id="cart-btn" onclick="window.location.href='./cart.html'" ><img src="./icon/cart4.svg" alt="cart">(<span id="cart-count">0</span>)</button>
+    </div>
   </header>
 
   <main>
