@@ -13,6 +13,9 @@
     gap: 10px;
     padding: 10px 20px 0 0;
   }
+  .header-navbar a:hover{
+    opacity: 0.6;
+  }
   .header-navbar a{
     color: white;
     text-decoration: none;
@@ -58,9 +61,13 @@
     #cart-count{
       color: black;
       font-size:20px;
-      padding:0 10px;
+      padding:0 5px;
       border-radius: 50px;
       background-color: #fff;
+      margin-bottom: 26px;
+    }
+    .cart:hover{
+        transform: scaleX(1.1);
     }
     
     .cart {
@@ -87,6 +94,7 @@
   .product {
     border: 1px solid #ddd;
     padding: 10px;
+    box-shadow: 5px 5px 20px rgb(160 80 30 / 50%);
   }
   .content img{
         width: 100%;
