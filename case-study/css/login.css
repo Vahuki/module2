@@ -12,7 +12,7 @@ h2{
 }
 .banner{
     flex: 2;
-    background: url(/case-study/img/baner2.png);
+    background: url("/case-study/img/baner2.png");
     background-size: cover;
     background-position: center;
 }
