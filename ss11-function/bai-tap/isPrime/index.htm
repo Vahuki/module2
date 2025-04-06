@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrime(n) {
+            if (n < 2) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        function findPrimesInRange(start, end) {
+            const primes = [];
+            for (let i = start; i <= end; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            return primes;
+        }
+
+        const start = parseInt(prompt("Nhập số bắt đầu:"));
+        const end = parseInt(prompt("Nhập số kết thúc:"));
+        const primes = findPrimesInRange(start, end);
+        document.write(`Các số nguyên tố trong khoảng từ ${start} đến ${end} là: ${primes.join(", ")}`);
+    </script>
+</body>
+</html>

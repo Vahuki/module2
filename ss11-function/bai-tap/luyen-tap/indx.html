@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function showMessage() {
+            alert("Hello, this is a message from the script!");
+        }
+        
+        function levelup(x){
+            return x + 1;
+        }
+/////////////////////////////////////////////
+        function compare(a, b) {
+            if (a > b) {
+                alert(a + " is greater than " + b);
+            } else {
+                return a + b;
+            } 
+        }
+/////////////////////////////////////////////
+
+        function addNumbers() {
+            firstNum = 4;
+            secondNum = 8;
+            result = firstNum + secondNum;
+            return result;
+        }
+/////tinh giai thua
+        function giaithua(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * giaithua(n - 1);
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

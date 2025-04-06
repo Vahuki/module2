@@ -31,7 +31,7 @@ function displayProducts() {
 
 function addProduct() {
     let input = document.getElementById("productName");
-    let name = input.value.trim();
+    let name = input.value.trim();//loại bỏ khoảng trắng ở đầu và cuối chuỗi
 
     if (name) {
         products.push(name);

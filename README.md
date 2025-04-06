@@ -1,2 +1,3 @@
 # Bootcamp Preparation 2.1
-xin-chao
+
+[Case Study](https://vahuki.github.io/module2/case-study/)
