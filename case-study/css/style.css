@@ -7,7 +7,7 @@
     position: relative;
   }
   .header-navbar{
-    background-color: #b62525;
+    background-color: #ae1a1a;
     display: flex;
     justify-content:end;
     gap: 10px;
@@ -22,7 +22,7 @@
     font-size: 18px;
   }
   .header-container {
-    background-color: #b62525;
+    background-color: #ae1a1a;
     display: flex;
     text-align: left;
     margin-bottom: 20px;
@@ -53,7 +53,7 @@
         padding: 20px 20px;
         background-color: #fff;
         border: none;
-        color: #b62525;
+        color: #ae1a1a;
         cursor: pointer;
         border-radius: 30px;
         font-weight: bold;
@@ -71,7 +71,7 @@
     }
     
     .cart {
-        background-color: #b62525; 
+        background-color: #ae1a1a; 
         color: #fff;
         font-size: 18px;
         padding: 10px 20px;
@@ -104,7 +104,7 @@
   }
   
   .product-actions button{
-    background-color: #b62525;
+    background-color: #ae1a1a;
     color: white;
     border: none;
     cursor: pointer;
@@ -112,9 +112,14 @@
     padding: 7px 5px;
     border-radius: 4px;
   }
+  .product-actions button:hover{
+    background-color: #fff;
+    color: #ae1a1a;
+    border: 1px solid #ae1a1a;
+  }
   
   footer {
-    background-color: #b62525;
+    background-color: #ae1a1a;
     color: white;
     text-align: center;
     margin-top: 20px;

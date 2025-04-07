@@ -21,20 +21,21 @@ h2{
 .login{
    flex: 1;
    justify-content: center;
-   background-color: #fff;
+   background-color: #fffbfb;
 }
 .login-cart {
     display: flex;
     justify-content:left;
-    background-color: #b62525;
+    background-color: #ae1a1a;
 }
 .login-cart h2 {
     color: white;
     padding: 20px;
     font-size: 40px;
+    cursor: pointer;
 }
 footer {
-    background-color: #b62525;
+    background-color: #ae1a1a;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -52,6 +53,7 @@ footer {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     opacity: 0.9;
+    background: linear-gradient(to bottom right, #ff7e7e, #f4f4f4);
    
 }
 input {
@@ -62,7 +64,7 @@ input {
 }
 button{
     margin-top: 10px;
-    background-color: #b62525;
+    background-color: #ae1a1a;
     color: white;
     border: none;
     padding: 10px;
@@ -85,7 +87,7 @@ button{
     margin-top: 10px;
 }
 .register-option a {
-    color: #b62525;
+    color: #ae1a1a;
     text-decoration: none;
     font-weight: bold;
 }

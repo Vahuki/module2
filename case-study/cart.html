@@ -5,77 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
     <link rel="icon" href="./img/ChatGPT Image 04_40_33 5 thg 4, 2025.png" type="image/x-icon" />
-
-    <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
-            }
-            h2{
-                border-left: 2px solid #fff;
-            }
-    
-           
-            .head-cart {
-                display: flex;
-                justify-content:left;
-                background-color: #b62525;
-            }
-            .head-cart h2 {
-                color: white;
-                padding: 20px;
-                font-size: 40px;
-            }
-            footer {
-                background-color: #b62525;
-                color: white;
-                text-align: center;
-                margin-top: 20px;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                
-              }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin: 20px 0;
-            }
-            th, td {
-                padding: 10px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-            }
-            th {
-                background-color: #f2f2f2;
-                font-weight: bold;
-                font-size: 20px;
-            }
-            .btn {
-                background-color: #b62525;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                cursor: pointer;
-                font-size: 16px;
-                border-radius: 5px;
-            }
-    </style>
+    <link rel="stylesheet" href="./css/cart.css">
 </head>
 <body>
     <head>
         <div id="cart-modal" >
-            <div class="head-cart">
-                <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" alt="kstore" width="150" height="150" onclick="window.location.href='./index.html'"/>
-                <h2>Giỏ hàng</h2>
+            <div class="head-cart" >
+                <img style="cursor: pointer;" src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" alt="kstore" width="150" height="150" onclick="window.location.href='./index.html'"/>
+                <h2 onclick="window.location.href='./index.html'">Giỏ hàng</h2>
             </div>
         </div>
     </head>
     <main>
-        <table>
+        <table id="cart-table">
             <thead>
                 <tr>
                     <th>Tên sản phẩm</th>
@@ -89,7 +31,16 @@
                 <!-- Các sản phẩm trong giỏ hàng sẽ được thêm vào đây -->
             </tbody>
         </table>
-        <p id="cart-total">Tổng tiền: 0 đ</p>
+        <div id="cart-mobile"></div>
+        <div id="cart-emty" style="display: none;">
+            <h2>Giỏ hàng của bạn đang trống</h2>
+            <p>Hãy thêm sản phẩm vào giỏ hàng để tiếp tục mua sắm.</p>
+            <button class="btn" onclick="window.location.href='./index.html'">Tiếp tục mua sắm</button>
+        </div>
+        <div id="cart-pay" >
+            <p id="total"></p>
+            <input type="button" value="Mua hàng" class="btn" id="checkout-btn" >
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 K-Store. All rights reserved.</p>
