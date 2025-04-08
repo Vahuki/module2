@@ -19,9 +19,9 @@ h2{
     height: 100%;
     object-fit: cover;
 }
-.login-modal{
+#login-modal{
     position: sticky;
-    top: 0;
+    top: 0; 
 }
 .login{
    flex: 1;
