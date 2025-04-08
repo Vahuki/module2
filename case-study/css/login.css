@@ -22,6 +22,7 @@ h2{
 #login-modal{
     position: sticky;
     top: 0; 
+    z-index: 10;
 }
 .login{
    flex: 1;
