@@ -70,10 +70,7 @@ function registerStore() {
     } 
 }
 
-let tk = document.getElementById("user-name");
-if (islogin){
-    tk.innerHTML = registeredUser.name;
-}
+
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login");
     const registerForm = document.getElementById("register");
