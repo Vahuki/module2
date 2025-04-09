@@ -43,7 +43,18 @@ const products = [
     });
 
   }
-  
+  function buy(id) {
+    const index = cart.findIndex(item => item.id === id);
+    if (index !== -1) {
+      cart[index].qty += 1;
+    } else {
+      const product = products.find(p => p.id === id);
+      cart.push({ ...product, qty: 1 });
+    }
+    saveCart();
+    alert("Đặt hàng thành công!");
+  }
+
   function addToCart(id) {
     const index = cart.findIndex(item => item.id === id);
     if (index !== -1) {
@@ -64,31 +75,6 @@ const products = [
     document.getElementById("cart-count").textContent = cart.reduce((a, b) => a + b.qty, 0);
   }
   
-  // function openCart() {
-  //   let tableBody = document.getElementById("cart-items");
-  //   if (!tableBody) {
-  //       console.error("Phần tử với id='cart-items' không tồn tại trong DOM.");
-  //       return;
-  //   }
-  //   tableBody.innerHTML = ""; // Clear previous items
-  //   let total = 0;
-  //   cart.forEach(item => {
-  //       let row = document.createElement("tr");
-  //       row.innerHTML = `
-  //           <td>${item.name}</td>
-  //           <td>${item.price.toLocaleString()} đ</td>
-  //           <td>${item.qty}</td>
-  //           <td>${(item.price * item.qty).toLocaleString()} đ</td>
-  //       `;
-  //       tableBody.appendChild(row);
-  //       total += item.price * item.qty;
-  //   });
-  //   // Hiển thị tổng tiền
-  //   const totalElement = document.getElementById("cart-total");
-  //   if (totalElement) {
-  //       totalElement.textContent = `Tổng tiền: ${total.toLocaleString()} đ`;
-  //   }
-  // }
   document.addEventListener("DOMContentLoaded", () => {
     const list = document.getElementById("product-list");
     if (list) {
@@ -97,25 +83,6 @@ const products = [
     } else {
         console.warn("Phần tử với id='product-list' không tồn tại trong DOM.");
     }
-});
-//   document.addEventListener("DOMContentLoaded", () => {
-//     const list = document.getElementById("product-list");
-//     if (list) {
-//         renderProducts();
-//         updateCartCount();
-//     } else {
-//         console.warn("Phần tử với id='product-list' không tồn tại trong DOM.");
-//     }
-
-//     const cartBtn = document.getElementById("cart-btn");
-//     if (cartBtn) {
-//         cartBtn.addEventListener("click", () => {
-//             const tableBody = document.getElementById("cart-items");
-//             if (tableBody) {
-//                 openCart();
-//             } else {
-//                 console.warn("Phần tử với id='cart-items' không tồn tại trong DOM.");
-//             }
-//         });
-//     }
-// });
+  });
+    
+    

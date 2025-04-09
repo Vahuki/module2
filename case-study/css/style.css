@@ -31,11 +31,10 @@
     width: 100%;
   } 
     .logo {
-        margin-left: 200px;
         flex: 1;
     }
     .search {
-        flex: 8;
+        flex: 7;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,14 +75,23 @@
         color: #fff;
         font-size: 18px;
         padding: 10px 20px;
-        margin-right: 200px; ;
         flex: 1;
         display: flex;
         justify-content: center;
         position: relative;
         align-items: center;
     }
-    
+    .user{
+        flex: 1;
+        background-color: #ae1a1a; 
+        color: #fff;
+        font-size: 18px;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
   
   #product-list {
     display: grid;

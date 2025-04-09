@@ -27,30 +27,60 @@
         <div class="banner">
             <img src="./img/baner2.png" alt="banner">
         </div>
-        <div class="login">
-            <form action="#" class="login-form">
+        <div id="login">
+            <form action="#" class="login-form" method="post">
                 <h2>Đăng Nhập</h2>
-                <p class="message" id="error"></p>
+                <p id="message"></p>
                 <input
                     type="text"
-                    name="username"
+                    id="username"
                     placeholder="Email/Số Điện Thoại/Tên Đăng Nhập"
                     required
                     />
                 <input
                     type="password"
-                    name="password"
+                    id="password"
                     required
                     placeholder="Mật Khẩu"
                 />
-                <button type="submit">ĐĂNG NHẬP</button>
+                <button type="button" onclick="loginStore()">ĐĂNG NHẬP</button>
                 <div class="more-option">
                     <p><a href="">Quên mật khẩu</a></p>
                     <p><a href="">Đăng nhập với SMS</a></p>
                 </div>
                 <div class="register-option">
-                        <p>Bạn chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+                        <p >Bạn chưa có tài khoản?<span onclick="register()" style="color: red;text-decoration: underline;cursor: pointer;"> Đăng ký</span></p>
                 </div>
+            </form>
+        </div>
+        <div id="register">
+            <form action="#" class="register-form" method="post">
+                <h2>Đăng Kí</h2>
+                <p id="register-message"></p>
+                <input
+                    type="text"
+                    id="register-name"
+                    placeholder="Email/Số Điện Thoại/Tên Đăng Nhập"
+                    required
+                    />
+                <input
+                    type="password"
+                    id="register-pass"
+                    required
+                    placeholder="Mật Khẩu"
+                />
+                <input
+                    type="password"
+                    id="register-repass"
+                    required
+                    placeholder="Xác Nhận Mật Khẩu"
+                />
+                <button type="button" onclick="registerStore()">ĐĂNG KÝ</button>
+                <div class="more-option">
+                    <p onclick="login()">Đăng nhập </p>
+                    <p><a href="">Đăng nhập với SMS</a></p>
+                </div>
+                
             </form>
         </div>
     </main>
@@ -59,5 +89,6 @@
         <p>Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM</p>
         <p>Điện thoại: 0123 456 789</p>
     </footer>
+    <script src="/case-study/js/login.js"></script>
 </body>
 </html>

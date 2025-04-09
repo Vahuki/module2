@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rectangle</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="500" height="300" style="border:1px solid #000;"></canvas>
+
+  <script>
+    class Rectangle {
+      constructor(length, width) {
+        this.length = length; // Chiều dài
+        this.width = width;   // Chiều rộng
+      }
+
+      area() {
+        // Tính diện tích
+        return this.length * this.width;
+      }
+
+      perimeter() {
+        // Tính chu vi
+        return 2 * (this.length + this.width);
+      }
+
+      draw(x = 50, y = 50, color = "lightblue") {
+        const canvas = document.getElementById("myCanvas");
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("3d");
+          ctx.fillStyle = color;
+          ctx.fillRect(x, y, this.length, this.width);
+          ctx.strokeRect(x, y, this.length, this.width);
+        } else {
+          console.log("Trình duyệt không hỗ trợ canvas.");
+        }
+      }
+    }
+
+    // Ví dụ sử dụng:
+    const rect = new Rectangle(200, 100);
+    console.log("Diện tích:", rect.area());
+    console.log("Chu vi:", rect.perimeter());
+    rect.draw(); // Vẽ lên canvas
+  </script>
+</body>
+</html>
