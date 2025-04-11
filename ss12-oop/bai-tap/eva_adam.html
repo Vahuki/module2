@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Apple{
+            weight;
+            constructor(){
+                this.weight=10;
+            }
+            
+            decrease(){
+                if (!isEmpty()){
+                    return this.weight --;
+                }
+            }
+            isEmpty(){
+                return this.weight === 0;
+            }
+            getWeight(){
+                return this.weight;
+            }
+        }
+        const Apple1 = new Apple();
+        class Human{
+            name;
+            gender;
+            weight;
+            constructor(){
+                this.name = name ;
+                this.weight = weight;
+                this.gender = gender;
+            }
+            isMale(){
+                return this.gender;
+            }
+            setGender(isMale){
+                this.gender = true;
+            }
+            say(string){
+                return string;
+            }
+            getName(){
+                return this.name;
+            }
+            setName(newName){
+                return this.name = newName;
+            }
+            getWeight(){
+                return this.weight;
+            }
+            setWeight(newWeight){
+                return this.weight = newWeight;
+            }
+
+        }
+    </script>
+</body>
+</html>

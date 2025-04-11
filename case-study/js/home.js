@@ -11,6 +11,7 @@ if (isLogin === "true") {
     }
 }else {
     // chưa đăng nhập, ẩn tên người dùng
+
     document.getElementById("header-navbar").style.display = "flex";
 
     document.getElementById("logout-btn").style.display = "none";  
