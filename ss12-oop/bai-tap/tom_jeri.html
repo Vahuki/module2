@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Rat{
+            name;weight;speed;isDie;
+            constructor(name,weight,speed,isDie){
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.isDie = isDie;
+            }
+            say(){
+                return "chít chít"
+            }
+        }
+        class Cat{
+            name;weight;maxSpeed;
+            constructor(name,weight,maxSpeed){
+                this.name = name;
+                this.weight = weight;
+                this.maxSpeed = maxSpeed;
+            }
+            say(){
+                return "meo meo"
+            }
+            playwRat(rat){
+                if(this.maxSpeed > rat.speed){
+                    return "hehe"
+                }
+            }
+            eatRat(rat){
+                if(rat.isDie == true){
+                    this.weight += rat.weight;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -14,7 +14,7 @@
             }
             
             decrease(){
-                if (!isEmpty()){
+                if (!this.isEmpty()){
                     return this.weight --;
                 }
             }
@@ -56,15 +56,19 @@
             setWeight(newWeight){
                 return this.weight = newWeight;
             }
-            eat(Apple){
-                if(Apple && !Apple.isEmpty){
-                    this.weight ++;
-                    Apple.decrease();
+            eat(apple){
+                if(apple && !apple.isEmpty()){
+                    
+                        this.weight ++;
+                        apple.decrease();
+                    
                 }
             }
 
         }
-        const Human1 = new Human("kien","60",true);
+        const Kien = new Human("kien",60,true);
+        const Kien1 = new Human("kien1",65,true);
+
         
     </script>
 </body>
