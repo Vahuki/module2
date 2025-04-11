@@ -37,6 +37,7 @@
             eatRat(rat){
                 if(rat.isDie == true){
                     this.weight += rat.weight;
+                    rat.isDie = false;
                 }
             }
         }
