@@ -1,91 +1,87 @@
-class user {
-    name;
-    pass;
-    constructor(name, pass) {
-        this.name = name;
-        this.pass = pass;
-    }
+// === Khởi tạo mảng users từ localStorage nếu có ===
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    check(otherUser) {
-        return this.name === otherUser.name && this.pass === otherUser.pass;
-    }
+class User {
+  constructor(name, pass) {
+    this.name = name;
+    this.pass = pass;
+  }
+
+  check(otherUser) {
+    return this.name === otherUser.name && this.pass === otherUser.pass;
+  }
 }
-let islogin = false; // Biến toàn cục lưu trạng thái đăng nhập
-let registeredUser = null; // Biến toàn cục lưu người dùng đã đăng ký
 
 function loginStore() {
-    const name = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
-    const user1 = new user(name, pass);
+  const name = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+  const msg = document.getElementById("message");
 
-    const savedUser = JSON.parse(localStorage.getItem("user")); // Lấy user đã đăng ký
-    const msg = document.getElementById("message");
+  const userLogin = new User(name, pass);
+  const found = users.find(u => userLogin.check(u));
 
-    if (savedUser) {
-        const user2 = new user(savedUser.name, savedUser.pass);
-        if (user1.check(user2)) {
-            msg.innerText = "Đăng nhập thành công";
-            localStorage.setItem("isLogin", "true"); // Đánh dấu đã đăng nhập
-            setTimeout(() => {
-                msg.innerText = "chuyển hướng đến trang chủ sau 3s";
-            }, 2000);
-            setTimeout(() => {
-                window.location.href = "index.html"; // Chuyển hướng đến trang chủ
-            }, 5000); // 3 giây
-        } else {
-            msg.innerText = "Sai tên đăng nhập hoặc mật khẩu";
-
-            // Ẩn sau 2 giây
-            setTimeout(() => {
-                msg.innerText = "";
-            }, 2000);
-        }
-    } else {
-        msg.innerText = "Chưa có tài khoản nào được đăng ký";
-
-        // Ẩn sau 2 giây
-        setTimeout(() => {
-            msg.innerText = "";
-        }, 2000);
-    }
+  if (found) {
+    msg.innerText = "Đăng nhập thành công!";
+    localStorage.setItem("isLogin", "true"); // Đánh dấu đã đăng nhập
+    localStorage.setItem("currentUser", JSON.stringify(found)); // Lưu user đang đăng nhập
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2000);
+  } else {
+    msg.innerText = "Sai tên đăng nhập hoặc mật khẩu!";
+    setTimeout(() => {
+        msg.innerText = "Vui lòng thử lại!";
+      }, 2000);
+  }
 }
-
-
 
 function registerStore() {
-    const name = document.getElementById("register-name").value;
-    const pass = document.getElementById("register-pass").value;
-    const repass = document.getElementById("register-repass").value;
+  const name = document.getElementById("register-name").value;
+  const pass = document.getElementById("register-pass").value;
+  const repass = document.getElementById("register-repass").value;
+  const msg = document.getElementById("register-message");
 
-    if (name == "" || pass == "" || repass == "") {
-        document.getElementById("register-message").innerText = "Vui lòng nhập đầy đủ thông tin";
-    } else if (pass != repass) {
-        document.getElementById("register-message").innerText = "Mật khẩu không khớp";
-    } else {
-        const user2 = new user(name, pass);
-        localStorage.setItem("user", JSON.stringify(user2)); // Lưu vào localStorage
-        document.getElementById("register-message").innerText = "Đăng ký thành công";
-       
-       
-    } 
+  if (!name || !pass || !repass) {
+    msg.innerText = "Vui lòng nhập đầy đủ thông tin";
+    return;
+  }
+
+  if (pass !== repass) {
+    msg.innerText = "Mật khẩu không khớp";
+    return;
+  }
+
+  if (users.find(u => u.name === name)) {
+    msg.innerText = "Tài khoản đã tồn tại!";
+    return;
+  }
+
+  const newUser = new User(name, pass);
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users)); // Lưu lại danh sách user
+
+  msg.innerText = "Đăng ký thành công!";
+
+  // Xóa input sau khi đăng ký
+  document.getElementById("register-name").value = "";
+  document.getElementById("register-pass").value = "";
+  document.getElementById("register-repass").value = "";
 }
 
+// Ẩn hiện form
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login");
+  const registerForm = document.getElementById("register");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("login");
-    const registerForm = document.getElementById("register");
+  registerForm.style.display = "none";
 
-    window.register = function () {
-        if (loginForm && registerForm) {
-            loginForm.style.display = "none";
-            registerForm.style.display = "block";
-        }
-    };
+  window.register = function () {
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
+  };
 
-    window.login = function () {
-        if (loginForm && registerForm) {
-            loginForm.style.display = "block";
-            registerForm.style.display = "none";
-        }
-    };
+  window.login = function () {
+    loginForm.style.display = "block";
+    registerForm.style.display = "none";
+  };
 });

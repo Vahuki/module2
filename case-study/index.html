@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <div class="header-navbar">
+    <div id="header-navbar">
       <a href="./login.html">Đăng kí</a>
       <a href="./login.html" style="border-left: 2px solid #fff;padding-left:10px;">Đăng nhập</a>
     </div>
@@ -26,10 +26,13 @@
         <img width="50%" src="./icon/cart4.svg" alt="cart" onclick="window.location.href='./cart.html'"><span id="cart-count">0</span>
       </div>
       <div class="user">
-        <img width="40%" src="./icon/person-circle.svg" alt="user" onclick="window.location.href='./login.html'">
-        <span id="user-name">Tài khoản</span>
+        <img id="ic-user" width="40%" src="./icon/person-circle.svg" alt="user" >
+        <p id="user-name"></p>
+        
       </div>
+     
     </div>
+    <button id="logout-btn" onclick="logout()">Đăng xuất</button>
   </header>
 
   <main>

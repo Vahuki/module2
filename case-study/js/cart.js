@@ -24,12 +24,16 @@ function openCartMobile(){
                 </div>
                 <div class="cart-item-mobile-remove">
                     <button class="btn-remove" onclick="removeItem(${item.id})">Xóa</button>
+                    <br>
+                    <input type="checkbox" class="checkbox-buy" data-id="${item.id}" style="width:50px;height:30px" />
                 </div>
             </div>
             <br>
            `;
         tableBody.appendChild(content);
         total += item.price * item.qty;
+        let btnBuy = document.getElementById("buy-btn");
+        btnBuy.innerText += `onclick="buy(${p.id})"`;
     });
     if (cart.length === 0) {
         let empty = document.getElementById("cart-emty");
@@ -71,11 +75,15 @@ function openCart() {
             <td>${item.qty}</td>
             <td>${(item.price * item.qty).toLocaleString()} đ</td>
             <td>
-                <button class="btn btn-danger" onclick="removeItem(${item.id})">Xóa</button>
+                <input type="checkbox" class="checkbox-buy" data-id="${item.id}" style="width: 100%;height: 50px;" />
             </td>
-            `;
+            <td>
+                <button class="btn-remove" onclick="removeItem(${item.id})">Xóa</button>
+            </td>
+            `;  
         tableBody.appendChild(row);
         total += item.price * item.qty;
+        
     });
     if (cart.length === 0) {
         let empty = document.getElementById("cart-emty");
@@ -98,8 +106,41 @@ function openCart() {
     if (totalElement) {
         totalElement.textContent = `Tổng cộng (${cart.length} sản phẩm): ${total.toLocaleString()} đ`;
     }
+    
+}
+function pay() {
+    let checkboxes = document.querySelectorAll(".checkbox-buy:checked");
+    if (checkboxes.length === 0) {
+        alert("Vui lòng chọn ít nhất một sản phẩm!");
+        return;
+    }
+
+    checkboxes.forEach(cb => {
+        let id = parseInt(cb.dataset.id);
+        const index = cart.findIndex(item => item.id === id);
+        if (index !== -1) {
+            // Ở đây bạn có thể xử lý mua hàng hoặc gửi dữ liệu đi server nếu cần
+            console.log(`Mua sản phẩm: ${cart[index].name} - SL: ${cart[index].qty}`);
+        }
+    });
+
+    // Sau khi xử lý mua hàng, bạn có thể xóa các sản phẩm đó khỏi giỏ:
+    cart = cart.filter(item => {
+        return !Array.from(checkboxes).some(cb => parseInt(cb.dataset.id) === item.id);
+    });
+
+    //saveCart();
+    alert("Đặt hàng thành công!");
+    
+    // Cập nhật lại giao diện
+    if (window.innerWidth <= 768) {
+        openCartMobile();
+    } else {
+        openCart();
+    }
 }
 
+window.pay = pay;
 // Gắn hàm removeItem vào đối tượng window để sử dụng trong HTML
 window.removeItem = function (id) {
     cart = cart.filter(item => item.id !== id);

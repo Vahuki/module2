@@ -2,46 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rectangle</title>
+  <title>Mobile Messaging</title>
 </head>
 <body>
-  <canvas id="myCanvas" width="500" height="300" style="border:1px solid #000;"></canvas>
+  <table border="1" style="width: 100%; text-align: center;">
+    <thead>
+      <tr>
+        <th>User1</th>
+        <th>User2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" id="ib1" onchange="sendMessage(user1, user2, 'ib1', 'battery1',  'inbox2')"></td>
+        <td><input type="text" id="ib2" onchange="sendMessage(user2, user1, 'ib2', 'battery2',  'inbox1')"></td>
+      </tr>
+      <tr>
+        <td id="battery1">Battery: 100%</td>
+        <td id="battery2">Battery: 100%</td>
+      </tr>
+      <tr>
+        <td id="sent1">Sent: ...</td>
+        <td id="sent2">Sent: ...</td>
+      </tr>
+      <tr>
+        <td id="inbox1">Inbox: ...</td>
+        <td id="inbox2">Inbox: ...</td>
+      </tr>
+    </tbody>
+  </table>
 
   <script>
-    class Rectangle {
-      constructor(length, width) {
-        this.length = length; // Chiều dài
-        this.width = width;   // Chiều rộng
+    class Mobile {
+      constructor() {
+        this.battery = 100;
+        this.inbox = [];
+        this.sent = [];
       }
 
-      area() {
-        // Tính diện tích
-        return this.length * this.width;
-      }
-
-      perimeter() {
-        // Tính chu vi
-        return 2 * (this.length + this.width);
-      }
-
-      draw(x = 50, y = 50, color = "lightblue") {
-        const canvas = document.getElementById("myCanvas");
-        if (canvas.getContext) {
-          const ctx = canvas.getContext("3d");
-          ctx.fillStyle = color;
-          ctx.fillRect(x, y, this.length, this.width);
-          ctx.strokeRect(x, y, this.length, this.width);
-        } else {
-          console.log("Trình duyệt không hỗ trợ canvas.");
+      sendMessage(toMobile, message) {
+        if (this.battery > 0) {
+          this.battery--;
+          toMobile.inbox.push(message);
         }
       }
     }
 
-    // Ví dụ sử dụng:
-    const rect = new Rectangle(200, 100);
-    console.log("Diện tích:", rect.area());
-    console.log("Chu vi:", rect.perimeter());
-    rect.draw(); // Vẽ lên canvas
+    let user1 = new Mobile();
+    let user2 = new Mobile();
+
+    function sendMessage(from, to, inputId, batteryId, inboxId) {
+      const message = document.getElementById(inputId).value;
+      if (message.trim() === "") return;
+
+      from.sendMessage(to, message);
+
+      // Cập nhật giao diện
+      document.getElementById(batteryId).innerText = "Battery: " + from.battery + "%";
+      document.getElementById(inboxId).innerHTML = "Inbox: <br>" + to.inbox.join("<br>");
+      document.getElementById(inputId).value = ""; // clear input
+    }
   </script>
 </body>
 </html>

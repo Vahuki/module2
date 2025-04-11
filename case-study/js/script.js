@@ -44,18 +44,26 @@ const products = [
 
   }
   function buy(id) {
-    const index = cart.findIndex(item => item.id === id);
-    if (index !== -1) {
-      cart[index].qty += 1;
-    } else {
-      const product = products.find(p => p.id === id);
-      cart.push({ ...product, qty: 1 });
+    const isLogin = localStorage.getItem("isLogin");
+    if (checkLogin()) {
+      addToCart(id);
+      window.location.href='./cart.html'; // Chuyển hướng đến trang giỏ hàng
     }
-    saveCart();
-    alert("Đặt hàng thành công!");
+  }
+  function checkLogin() {
+    const isLogin = localStorage.getItem("isLogin");
+    if (isLogin === "true") {
+      return true;
+    }else {
+      alert("Bạn cần đăng nhập để thực hiện giao dịch này.");
+     return false;
+    }
   }
 
   function addToCart(id) {
+    if (!checkLogin()) {
+      return;
+    }
     const index = cart.findIndex(item => item.id === id);
     if (index !== -1) {
       cart[index].qty += 1;
