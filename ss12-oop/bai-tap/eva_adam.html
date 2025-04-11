@@ -56,6 +56,12 @@
             setWeight(newWeight){
                 return this.weight = newWeight;
             }
+            eat(Apple){
+                if(Apple && !Apple.isEmpty){
+                    this.weight ++;
+                    Apple.decrease();
+                }
+            }
 
         }
         const Human1 = new Human("kien","60",true);
