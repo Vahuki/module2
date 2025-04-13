@@ -55,7 +55,7 @@ const products = [
     if (isLogin === "true") {
       return true;
     }else {
-      alert("Bạn cần đăng nhập để thực hiện giao dịch này.");
+      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
      return false;
     }
   }
