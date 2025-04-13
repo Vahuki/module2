@@ -11,8 +11,11 @@
 <body>
   <header>
     <div id="header-navbar">
-      <a href="./login.html">Đăng kí</a>
-      <a href="./login.html" style="border-left: 2px solid #fff;padding-left:10px;">Đăng nhập</a>
+      <div id="login">
+        <a href="./login.html">Đăng kí</a>
+        <a href="./login.html" style="border-left: 2px solid #fff;padding-left:10px;">Đăng nhập</a>
+      </div>
+      <a id="logout" onclick="logout()">Đăng xuất</a>
     </div>
     <div class="header-container">
       <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
@@ -27,11 +30,10 @@
       </div>
       <div class="user">
         <img id="ic-user" width="40%" src="./icon/person-circle.svg" alt="user" >
-        <p id="user-name" style="font-size: 14px;"></p>
+        <p id="user-name" style="font-size: 16px;"></p>
       </div>
      
     </div>
-    <button id="logout-btn" onclick="logout()">Đăng xuất</button>
   </header>
 
   <main>

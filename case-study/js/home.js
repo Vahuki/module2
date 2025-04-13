@@ -1,13 +1,10 @@
 
 if(checkLogin()){
-    document.getElementById("header-navbar").style.display = "none";
+    document.getElementById("login").style.display = "none";
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     document.getElementById("user-name").innerText = currentUser.name;
-    document.getElementById("logout-btn").style.display = "block";
-    if (window.innerWidth<768){
-        document.getElementsByClassName("header-container")[0].style.padding = "20px 0px 0px 0px";
-        document.getElementById("ic-user").style.width = "70%";
-    }
+}else{
+    document.getElementById("logout").style.display = "none";
 }
 function logout() {
     localStorage.setItem("isLogin", "false");

@@ -26,12 +26,12 @@ function loginStore() {
     localStorage.setItem("currentUser", JSON.stringify(found)); // Lưu user đang đăng nhập
     setTimeout(() => {
       window.location.href = "index.html";
-    }, 2000);
+    }, 1000);
   } else {
     msg.innerText = "Sai tên đăng nhập hoặc mật khẩu!";
     setTimeout(() => {
         msg.innerText = "Vui lòng thử lại!";
-      }, 2000);
+    }, 2000);
   }
 }
 
@@ -61,7 +61,9 @@ function registerStore() {
   localStorage.setItem("users", JSON.stringify(users)); // Lưu lại danh sách user
 
   msg.innerText = "Đăng ký thành công!";
-
+  setTimeout(() => {
+    msg.innerText = " ";
+  }, 1500);
   // Xóa input sau khi đăng ký
   document.getElementById("register-name").value = "";
   document.getElementById("register-pass").value = "";

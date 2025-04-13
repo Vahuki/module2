@@ -18,7 +18,8 @@ const products = [
     { id: 17, name: "Áo hoodie", price: 300000, img: "img/hoodie.jpg" },
     { id: 18, name: "Giày boot", price: 700000, img: "img/boots.jpg" },
     { id: 19, name: "Áo phao", price: 400000, img: "img/puffer.jpg" },
-    { id: 20, name: "Quần legging", price: 200000, img: "img/legging.jpg" }
+    { id: 20, name: "Quần legging", price: 200000, img: "img/legging.jpg" },
+    { id: 21, name: "Người yêu", price: 9999999999, img: "https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/481704855_1427075298671272_3919932337845294419_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGOe7Q9tY4EmT3s1k4qxIQKuJ5JUlRHi5q4nklSVEeLmtlj2AqTF_O6sf5HibxmS51_dmSPHz272Ht-boErXyf5&_nc_ohc=YPQJquGCAMIQ7kNvwEe9R-0&_nc_oc=AdmECAPYRtoA7iEmxU11Md2Fqv5n8znjskXgPioT84R2Qf-k5I21vWz_gn6alSBIknU&_nc_zt=23&_nc_ht=scontent.fsgn2-5.fna&_nc_gid=cu1d0gXJ8g7bwsrPxoZP7A&oh=00_AfHZCH6l5RRIW14o4EucETqFaIncdf9wrVekKFq4AE-Rdw&oe=68010519"}
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   

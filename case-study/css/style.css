@@ -19,9 +19,10 @@
     opacity: 0.6;
   }
   #header-navbar a{
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 18px;
+    font-weight: bolder;
   }
   .header-container {
     background-color: #ae1a1a;
@@ -126,18 +127,7 @@
     color: #ae1a1a;
     border: 1px solid #ae1a1a;
   }
-  #logout-btn{
-    position: absolute;
-    top: 0;
-    right: 10px;
-    padding: 5px 10px;
-    background: none;
-    border: none;
-    color: black;
-    font-size: 14px;
-    font-weight: 600;
-    display: none;
-  }
+  
   footer {
     background-color: #ae1a1a;
     color: white;
