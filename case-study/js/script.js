@@ -6,7 +6,6 @@ const products = [
     { id: 5, name: "Đồng hồ", price: 300000, img: "img/dong-ho.jpg" },
     { id: 6, name: "Kính mát", price: 200000, img: "img/glasses.jpg" },
     { id: 7, name: "Balo", price: 400000, img: "img/bag.jpg" },
-    { id: 21, name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
     { id: 8, name: "Thắt lưng", price: 120000, img: "img/belt.jpg" },
     { id: 9, name: "Dép sandal", price: 180000, img: "img/sandal.jpg" },
     { id: 10, name: "Áo khoác", price: 350000, img: "img/jacket.jpg" },
@@ -20,6 +19,7 @@ const products = [
     { id: 18, name: "Giày boot", price: 700000, img: "img/boots.jpg" },
     { id: 19, name: "Áo phao", price: 400000, img: "img/puffer.jpg" },
     { id: 20, name: "Quần legging", price: 200000, img: "img/legging.jpg" },
+    { id: 21, name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   
