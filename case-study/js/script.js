@@ -6,7 +6,7 @@ const products = [
     { id: 5, name: "Đồng hồ", price: 300000, img: "img/dong-ho.jpg" },
     { id: 6, name: "Kính mát", price: 200000, img: "img/glasses.jpg" },
     { id: 7, name: "Balo", price: 400000, img: "img/bag.jpg" },
-    { id: 21, name: "Người yêu", price: 9999999999, img: "https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/481704855_1427075298671272_3919932337845294419_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGOe7Q9tY4EmT3s1k4qxIQKuJ5JUlRHi5q4nklSVEeLmtlj2AqTF_O6sf5HibxmS51_dmSPHz272Ht-boErXyf5&_nc_ohc=YPQJquGCAMIQ7kNvwEe9R-0&_nc_oc=AdmECAPYRtoA7iEmxU11Md2Fqv5n8znjskXgPioT84R2Qf-k5I21vWz_gn6alSBIknU&_nc_zt=23&_nc_ht=scontent.fsgn2-5.fna&_nc_gid=cu1d0gXJ8g7bwsrPxoZP7A&oh=00_AfHZCH6l5RRIW14o4EucETqFaIncdf9wrVekKFq4AE-Rdw&oe=68010519"},
+    { id: 21, name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
     { id: 8, name: "Thắt lưng", price: 120000, img: "img/belt.jpg" },
     { id: 9, name: "Dép sandal", price: 180000, img: "img/sandal.jpg" },
     { id: 10, name: "Áo khoác", price: 350000, img: "img/jacket.jpg" },
