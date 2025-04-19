@@ -32,7 +32,7 @@
 
 Bạn có thể xem bản demo của project case study tại đây:
 
-> 🔗 https://vahuki.github.io/module2/case-study/
+> 🔗 [K-Store](https://vahuki.github.io/module2/case-study/)
 
 
 ## 📄 Giấy phép
