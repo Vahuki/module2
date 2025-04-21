@@ -12,31 +12,59 @@
   <header>
     <div id="header-navbar">
       <div id="login">
-        <a href="./login.html">Đăng kí</a>
-        <a href="./login.html" style="border-left: 2px solid #fff;padding-left:10px;">Đăng nhập</a>
+        <a href="./login.html" style="padding-right: 5px;">Đăng kí</a>
+        <a href="./login.html" style="border-left: 2px solid #fff;padding-left:5px;">Đăng nhập</a>
       </div>
-      <a id="logout" onclick="logout()">Đăng xuất</a>
+     
     </div>
     <div class="header-container">
       <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
-        <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" width="150" height="150" alt="logo" style=" opacity: 1;"/>
+        <img src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" width="150" height="150" alt="logo"/>
       </div>
       <div class="search">
         <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
-        <button id="search-btn"><img src="./icon/search.svg" alt="search"></button>
       </div>
       <div class="cart">
-        <img width="50%" src="./icon/cart4.svg" alt="cart" onclick="window.location.href='./cart.html'"><span id="cart-count">0</span>
+        <img width="35%" src="./icon/cart4.svg" alt="cart" onclick="window.location.href='./cart.html'"><span id="cart-count">0</span>
       </div>
       <div class="user">
-        <img id="ic-user" width="40%" src="./icon/person-circle.svg" alt="user" >
-        <p id="user-name" style="font-size: 16px;"></p>
+        <img id="ic-user" width="30%" src="./icon/person-circle.svg" alt="user" >
+        <p id="user-name" style="font-size: 14px;">
+          <div class="user-options">
+            <ul>
+              <li>Tài khoản</li>
+              <li onclick="window.location.href='./purchase.html'">Đơn mua</li>
+              <li> <a id="logout" onclick="logout()">Đăng xuất</a></li>
+            </ul>
+          </div>
+        </p>
       </div>
      
     </div>
   </header>
 
   <main>
+   
+    <aside class="more-options">
+      <div class="modal product-category">
+        <h3>Danh Mục Sản Phẩm</h3>
+        <ul>
+          <li>Áo</li>
+          <li>Quần</li>
+          <li>Phụ kiện</li>
+        </ul>
+      </div>
+      <div class="modal support">
+          <h3>Hỗ trợ trực tuyến</h3>
+          <p>Tư vấn bán hàng 1: <span style="color: red;text-decoration: underline;">0987654</span></p>
+          <p>Tư vấn bán hàng 2: <span style="color: red;text-decoration: underline;">0999999</span></p>
+          <p>Email liên hệ: <span style="color: red;">abc@gmail.com</span></p>
+      </div>
+      <div class="modal best-seller">
+        <h3>Sản phẩm nổi bật</h3>
+
+      </div>
+    </aside>
     <div id="product-list"></div>
   </main>
 

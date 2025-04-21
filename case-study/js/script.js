@@ -23,6 +23,39 @@ const products = [
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   
+  const searchInput = document.getElementById("search-input");
+
+  function findProducts() {
+      const query = searchInput.value.toLowerCase();
+      const found = products.filter(product => product.name.toLowerCase().includes(query));
+      renderFoundProducts(found);
+  }
+
+  function renderFoundProducts(foundProducts) {
+      const list = document.getElementById("product-list");
+      list.innerHTML = ""; // Xóa danh sách sản phẩm hiện tại
+      foundProducts.forEach(p => {
+          const item = document.createElement("div");
+          item.className = "product";
+          item.innerHTML = `
+              <div class="content">
+                  <img src="${p.img}" width="100%" />
+                  <h3>${p.name}</h3>
+                  <p>${p.price.toLocaleString()} đ</p>
+                  <p>Đánh giá: ${"⭐".repeat(5)}</p>
+              </div>
+              <div class="product-actions" style="justify-content: space-between; display: flex; margin-top: 10px;">
+                  <button onclick="addToCart(${p.id})">Thêm vào giỏ</button>
+                  <button onclick="buy(${p.id})">Mua ngay</button>
+              </div>
+          `;
+          list.appendChild(item);
+      });
+  }
+
+  // Gắn sự kiện keydown vào phần tử DOM
+  searchInput.addEventListener("keydown", findProducts);
+
   function renderProducts() {
     const list = document.getElementById("product-list");
     products.forEach(p => {
@@ -49,6 +82,9 @@ const products = [
     if (checkLogin()) {
       addToCart(id);
       window.location.href='./cart.html'; // Chuyển hướng đến trang giỏ hàng
+    }else{
+      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
+      window.location.href='./login.html';
     }
   }
   function checkLogin() {
@@ -56,14 +92,14 @@ const products = [
     if (isLogin === "true") {
       return true;
     }else {
-      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
      return false;
     }
   }
 
   function addToCart(id) {
     if (!checkLogin()) {
-      return;
+      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
+      window.location.href='./login.html';
     }
     const index = cart.findIndex(item => item.id === id);
     if (index !== -1) {
@@ -85,6 +121,13 @@ const products = [
   }
   
   document.addEventListener("DOMContentLoaded", () => {
+    if(checkLogin()){
+      document.getElementById("login").style.display = "none";
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      document.getElementById("user-name").innerText = currentUser.name;
+    }else{
+      document.getElementById("logout").style.display = "none";
+    }
     const list = document.getElementById("product-list");
     if (list) {
         renderProducts();
@@ -93,5 +136,4 @@ const products = [
         console.warn("Phần tử với id='product-list' không tồn tại trong DOM.");
     }
   });
-    
-    
+

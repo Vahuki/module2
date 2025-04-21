@@ -9,7 +9,6 @@ function openCartMobile(){
     tableBody.innerHTML = ""; // Clear previous items
     let total = 0;
     cart.forEach(item => {
-        document.getElementById("cart-table").style.display = "none"; // Ẩn thông báo giỏ hàng rỗng
         let content = document.createElement("div");
         content.className = "cart-item-mobile";
         content.innerHTML = `
@@ -29,12 +28,16 @@ function openCartMobile(){
                 </div>
             </div>
             <br>
-           `;
+        `;
         tableBody.appendChild(content);
         total += item.price * item.qty;
-        let btnBuy = document.getElementById("buy-btn");
-        btnBuy.innerText += `onclick="buy(${p.id})"`;
     });
+
+    // Gắn sự kiện change cho các checkbox
+    document.querySelectorAll(".checkbox-buy").forEach(checkbox => {
+        checkbox.addEventListener("change", updateCheckedTotal);
+    });
+
     if (cart.length === 0) {
         let empty = document.getElementById("cart-emty");
         let cartTable = document.getElementById("cart-table");
@@ -68,8 +71,8 @@ function openCart() {
         let row = document.createElement("tr");
         row.innerHTML = `
             <td style="display: flex; justify-content: space-between; align-items: center;"> 
+                <img src="${item.img}" width="25%" style="border:5px"/>
                 ${item.name}
-                <img src="${item.img}" width="25%" />
             </td>
             <td>${item.price.toLocaleString()} đ</td>
             <td>${item.qty}</td>
@@ -85,6 +88,12 @@ function openCart() {
         total += item.price * item.qty;
         
     });
+
+    // Gắn sự kiện change cho các checkbox
+    document.querySelectorAll(".checkbox-buy").forEach(checkbox => {
+        checkbox.addEventListener("change", updateCheckedTotal);
+    });
+
     if (cart.length === 0) {
         let empty = document.getElementById("cart-emty");
         let cartTable = document.getElementById("cart-table");
@@ -152,6 +161,24 @@ window.removeItem = function (id) {
         openCart(); // Gọi hàm mở giỏ hàng cho desktop
     }
 };
+
+function updateCheckedTotal() {
+    const checkboxes = document.querySelectorAll(".checkbox-buy:checked");
+    let total = 0;
+
+    checkboxes.forEach(cb => {
+        const id = parseInt(cb.dataset.id);
+        const item = cart.find(product => product.id === id);
+        if (item) {
+            total += item.price * item.qty;
+        }
+    });
+
+    const totalElement = document.getElementById("total");
+    if (totalElement) {
+        totalElement.textContent = `Tổng cộng (${checkboxes.length} sản phẩm): ${total.toLocaleString()} đ`;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 768) {

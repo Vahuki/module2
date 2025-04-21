@@ -4,6 +4,10 @@ body {
     margin: 0;
     padding: 0;
 }
+main{
+    min-height: 65vh;
+    position: relative;
+}
 h2{
     border-left: 2px solid #fff;
 }
@@ -43,6 +47,9 @@ th {
     font-weight: bold;
     font-size: 14px;
 }
+th:first-child{
+    text-align: right;
+}
 .btn {
     background-color: #ae1a1a;
     color: white;
@@ -63,8 +70,10 @@ th {
     gap : 20px;
     border: 1px solid #ddd;
     background-color: #fff;
-    position: sticky;
+    position: absolute;
     bottom: 0;
+    right: 0;
+    left: 0;
 }
 #cart-emty {
     display: flex;
@@ -88,7 +97,7 @@ th {
     color: #ae1a1a;
     padding: 10px 15px;
     cursor: pointer;
-    background-color: #fff;
+    background:none;
     text-decoration: underline;
     
 }
