@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     if(checkLogin()){
-      document.getElementById("login").style.display = "none";
+      document.getElementById("header-navbar").style.display = "none";
 
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
       document.getElementById("user-name").innerText = currentUser.name;

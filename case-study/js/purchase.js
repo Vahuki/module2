@@ -8,8 +8,10 @@ function openPurchase(){
         return;
     }
     tableBody.innerHTML = ""; // Clear previous items
+    const reversedArr = order.slice().reverse();//Tạo bản sao đảo ngược
 
-    order.forEach(item => {
+    for (let i = 0; i < reversedArr.length; i++) {
+        let item = reversedArr[i];  // Lấy object từ mảng
         let row = document.createElement("tr");
         let total = 0;
         total += item.price * item.qty;
@@ -24,9 +26,9 @@ function openPurchase(){
             `;  
 
         tableBody.appendChild(row);
-        
-        
-    });
+    }
+    
+    
 }
 document.addEventListener("DOMContentLoaded", () => {
     

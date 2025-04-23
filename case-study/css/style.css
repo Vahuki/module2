@@ -6,6 +6,8 @@
   header{
     position: sticky;
     top: 0;
+    height: 152.8px;
+    margin-bottom: 30px;
   }
   nav{
     flex: 5;
@@ -31,6 +33,7 @@
     justify-content:end;
     gap: 10px;
     padding: 10px 20px 0 0;
+    box-sizing: border-box;
   }
   #header-navbar a:hover{
     opacity: 0.6;
@@ -46,9 +49,6 @@
     background-color: #ae1a1a;
     display: flex;
     text-align: left;
-    margin-bottom: 20px;
-    width: 100%;
-    /* height: 150px; */
   } 
     .logo {
         flex: 1;
@@ -180,6 +180,7 @@
     text-align: center;
     margin-top: 20px;
     padding: 10px 0;
+    height: 76px;
   }
   .modal {
     background: #eee;

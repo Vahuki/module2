@@ -21,17 +21,37 @@ function loginStore() {
   const found = users.find(u => userLogin.check(u));
 
   if (found) {
-    msg.innerText = "Đăng nhập thành công, đang chuyển hướng.";
     localStorage.setItem("isLogin", "true"); // Đánh dấu đã đăng nhập
     localStorage.setItem("currentUser", JSON.stringify(found)); // Lưu user đang đăng nhập
+    Swal.fire({
+      title: 'Đăng nhập thành công,đang chuyển hướng',
+      // icon: 'success',
+      showConfirmButton: false,   // Ẩn nút OK
+      timer: 1500,                // Ẩn sau 2 giây (2000ms)
+      timerProgressBar: true,      // (tùy chọn) hiển thị thanh thời gian
+      customClass: {
+        title: 'my-title',
+        popup: 'my-popup',
+      }
+    });
     setTimeout(() => {
       window.location.href = "index.html";
-    }, 2000);
+    }, 1500);
   } else {
-    msg.innerText = "Sai tên đăng nhập hoặc mật khẩu!";
-    setTimeout(() => {
-        msg.innerText = "Vui lòng thử lại!";
-    }, 2000);
+    Swal.fire({
+      title: 'Sai tên đăng nhập hoặc mật khẩu!!',
+      // icon: 'success',
+      showConfirmButton: false,   // Ẩn nút OK
+      timer: 1000,                // Ẩn sau 2 giây (2000ms)
+      timerProgressBar: true,      // (tùy chọn) hiển thị thanh thời gian
+      customClass: {
+        title: 'my-title',
+        popup: 'my-popup',
+      }
+    });
+
+    
+   
   }
 }
 

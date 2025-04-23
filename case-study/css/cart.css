@@ -1,11 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
+header{
+    height: 152.8px;
+}
 main{
-    min-height: 65vh;
+    min-height: 68vh;
 }
 h2{
     border-left: 2px solid #fff;
@@ -19,18 +27,17 @@ h2{
 }
 .head-cart h2 {
     color: white;
-    padding: 20px;
-    font-size: 40px; 
+    padding: 45px;
+    font-size: 50px; 
     cursor: pointer;
 }
 footer {
     background-color: #ae1a1a;
     color: white;
     text-align: center;
+    margin-top: 20px;
     padding: 10px 0;
-    width: 100%;
-    
-  }
+}
 table {
     width: 100%;
     border-collapse: collapse;

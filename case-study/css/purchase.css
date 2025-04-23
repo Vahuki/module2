@@ -1,14 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
+header{
+    height: 150px;
+}
 h2{
     border-left: 2px solid #fff;
 }
 main{
-    min-height: 65vh;
+    min-height: 69vh;
     position: relative;
 }
 
@@ -19,8 +27,8 @@ main{
 }
 .head-purchase h2 {
     color: white;
-    padding: 20px;
-    font-size: 40px; 
+    padding: 45px;
+    font-size: 50px; 
     cursor: pointer;
 }
 table {
