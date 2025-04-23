@@ -130,23 +130,27 @@
   main{
     display: flex;
     margin: 50px;
+    min-height: 62vh;
+
   }
   .more-options{
     flex: 1;
     margin-right: 20px;
+
   }
   #product-list {
     flex: 3;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px;
-    
+    height: max-content;
     
   }
   .product {
     border: 1px solid #ddd;
     padding: 10px;
     box-shadow: 5px 5px 20px rgb(160 80 30 / 50%);
+    height: max-content;
   }
   .content img{
         width: 100%;

@@ -25,7 +25,6 @@ const products = [
   let order = JSON.parse(localStorage.getItem("order")) || [];
   
   const searchInput = document.getElementById("search-input");
-
   function findProducts() {
       const query = searchInput.value.toLowerCase();
       const found = products.filter(product => product.name.toLowerCase().includes(query));
@@ -37,6 +36,19 @@ const products = [
   } else {
     console.warn("Phần tử với id='search-input' không tồn tại trong DOM.");
   }
+  window.showAo = function (){
+     const found = products.filter(product => product.name.toLowerCase().includes("áo"));
+     renderFoundProducts(found);
+  };
+  window.showQuan = function (){
+    const found = products.filter(product => product.name.toLowerCase().includes("quần"));
+    renderFoundProducts(found);
+  };
+ window.showGiay = function (){
+  const found = products.filter(product => product.name.toLowerCase().includes("giày"));
+  renderFoundProducts(found);
+  };
+  
   function renderFoundProducts(foundProducts) {
       const list = document.getElementById("product-list");
       list.innerHTML = ""; // Xóa danh sách sản phẩm hiện tại
@@ -92,7 +104,7 @@ const products = [
       window.location.href='./login.html';
     }
   }
-  function checkLogin() {
+  export function checkLogin() {
     const isLogin = localStorage.getItem("isLogin");
     if (isLogin === "true") {
       return true;
@@ -105,6 +117,7 @@ const products = [
     if (!checkLogin()) {
       alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
       window.location.href='./login.html';
+      return;
     }
     const index = cart.findIndex(item => item.id === id);
     if (index !== -1) {

@@ -54,9 +54,9 @@
       <div class="modal product-category">
         <h3>Danh Mục Sản Phẩm</h3>
         <ul>
-          <li>Áo</li>
-          <li>Quần</li>
-          <li>Phụ kiện</li>
+          <li id="ao"  onclick="showAo()">Áo</li>
+          <li id="quan" onclick="showQuan()">Quần</li>
+          <li id="giay" onclick="showGiay()">Giày</li>
         </ul>
       </div>
       <div class="modal support">
@@ -65,9 +65,9 @@
           <p style="cursor: default;">Tư vấn bán hàng 2: <span style="color: red; cursor: pointer;text-decoration: underline;">0999999</span></p>
           <p style="cursor: default;">Email liên hệ: <span style="color: red; cursor: pointer;">abc@gmail.com</span></p>
       </div>
-      <div class="modal best-seller">
-        <h3>Sản phẩm nổi bật</h3>
-
+      <div class="modal" id="about">
+        <h3>Giới thiệu</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In soluta id odit ipsum pranatur, voluptates itaque saepe at quas obcaecati dolorum architecto modi aliquid praesentium qui nesciunt quia? Beatae corrupti provident aliquam iure <span style="cursor: pointer;color: #0434c7;text-decoration: underline;box-shadow: 2px 1px 0px 1px  rgb(128, 103, 103);">dolore dignissimos dicta quododit</span> facilis ipsam. Esse, enim?</p>        
       </div>
     </aside>
     <div id="product-list"></div>

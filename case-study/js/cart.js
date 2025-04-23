@@ -1,6 +1,6 @@
 import { saveCart } from './script.js';
 import { updateCartCount } from './script.js';
-
+import { checkLogin } from './script.js';
 
 
 // Lấy dữ liệu giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng
@@ -67,6 +67,8 @@ function openCartMobile(){
     }
 }
 function openCart() {
+    
+    
     let tableBody = document.getElementById("cart-items");
     if (!tableBody) {
         console.error("Phần tử với id='cart-items' không tồn tại trong DOM.");
