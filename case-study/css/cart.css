@@ -108,3 +108,8 @@ th:first-child{
     text-decoration: underline;
     
 }
+@media (max-width: 768px) {
+    header{
+        height: 152.8px;
+    }
+}

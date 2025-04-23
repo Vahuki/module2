@@ -140,7 +140,9 @@ button{
 }
 
 @media (max-width: 768px) {
-    
+    main{
+        min-height: 70vh;
+    }
     .banner {
        display: none;
     }
@@ -150,6 +152,11 @@ button{
         border: none;
         background: #fff;
        
+    }
+    .my-popup{
+        width: max-content;
+        padding-bottom:12px;
+        position: relative;
     }
 }
 @media (max-width: 1024px) {
