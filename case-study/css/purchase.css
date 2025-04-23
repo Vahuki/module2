@@ -57,3 +57,21 @@ footer {
     width: 100%;
     
 }
+@media (max-width: 768px) {
+    
+    header{
+        box-sizing: border-box;
+        height: 104px;
+    }
+    
+    .head-purchase > img {
+        width: 104px;
+        height: 104px;
+    }
+    .head-purchase h2 {
+        color: white;
+        padding: 26px;
+        font-size: 46px;
+        cursor: pointer;
+    }
+}

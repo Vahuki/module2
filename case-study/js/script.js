@@ -133,6 +133,8 @@ const products = [
     }
     saveCart();
     updateCartCount();
+    
+
   }
   
   export function saveCart() {

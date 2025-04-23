@@ -109,7 +109,20 @@ th:first-child{
     
 }
 @media (max-width: 768px) {
+    
     header{
-        height: 152.8px;
+        box-sizing: border-box;
+        height: 104px;
+    }
+    
+    .head-cart > img {
+        width: 104px;
+        height: 104px;
+    }
+    .head-cart h2 {
+        color: white;
+        padding: 26px;
+        font-size: 46px;
+        cursor: pointer;
     }
 }

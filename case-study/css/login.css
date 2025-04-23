@@ -140,6 +140,7 @@ button{
 }
 
 @media (max-width: 768px) {
+    
     main{
         min-height: 70vh;
     }
