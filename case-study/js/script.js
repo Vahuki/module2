@@ -22,6 +22,7 @@ const products = [
     { id: 21, name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let order = JSON.parse(localStorage.getItem("order")) || [];
   
   const searchInput = document.getElementById("search-input");
 
@@ -30,7 +31,12 @@ const products = [
       const found = products.filter(product => product.name.toLowerCase().includes(query));
       renderFoundProducts(found);
   }
-
+  // Gắn sự kiện keydown vào phần tử DOM
+  if (searchInput) {
+    searchInput.addEventListener("keydown", findProducts);
+  } else {
+    console.warn("Phần tử với id='search-input' không tồn tại trong DOM.");
+  }
   function renderFoundProducts(foundProducts) {
       const list = document.getElementById("product-list");
       list.innerHTML = ""; // Xóa danh sách sản phẩm hiện tại
@@ -53,8 +59,7 @@ const products = [
       });
   }
 
-  // Gắn sự kiện keydown vào phần tử DOM
-  searchInput.addEventListener("keydown", findProducts);
+  
 
   function renderProducts() {
     const list = document.getElementById("product-list");
@@ -77,7 +82,7 @@ const products = [
     });
 
   }
-  function buy(id) {
+  window.buy = function (id) {
     const isLogin = localStorage.getItem("isLogin");
     if (checkLogin()) {
       addToCart(id);
@@ -96,7 +101,7 @@ const products = [
     }
   }
 
-  function addToCart(id) {
+  window.addToCart = function(id) {
     if (!checkLogin()) {
       alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
       window.location.href='./login.html';
@@ -112,21 +117,30 @@ const products = [
     updateCartCount();
   }
   
-  function saveCart() {
+  export function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
   
-  function updateCartCount() {
-    document.getElementById("cart-count").textContent = cart.reduce((a, b) => a + b.qty, 0);
+  export function updateCartCount() {
+    const cartCountElement = document.getElementById("cart-count");
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.reduce((a, b) => a + b.qty, 0);
+    } else {
+        console.warn("Phần tử với id='cart-count' không tồn tại trong DOM.");
+    }
   }
   
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    
+
     if(checkLogin()){
       document.getElementById("login").style.display = "none";
+
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
       document.getElementById("user-name").innerText = currentUser.name;
+
     }else{
-      document.getElementById("logout").style.display = "none";
+      document.getElementById("userOptions").style.display = "none";
     }
     const list = document.getElementById("product-list");
     if (list) {

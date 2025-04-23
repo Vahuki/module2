@@ -9,20 +9,33 @@
 </head>
 <body>
     <head>
-        <div id="cart-modal" >
-            <div class="head-cart" >
+        <div id="purchase-modal" >
+            <div class="head-purchase" >
                 <img style="cursor: pointer;" src="./img/ChatGPT Image 04_59_45 5 thg 4, 2025.png" alt="kstore" width="150" height="150" onclick="window.location.href='./index.html'"/>
                 <h2 onclick="window.location.href='./index.html'">Đơn Mua</h2>
             </div>
         </div>
     </head>
     <main>
-         
+        <table id="purchase-table">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th colspan="2">Thời gian</th>
+                </tr>
+            </thead>
+            <tbody id="purchase-items">
+                <!-- Các sản phẩm trong giỏ hàng sẽ được thêm vào đây -->
+            </tbody>
+        </table>
     </main>
     <footer>
         <p>&copy; 2025 K-Store. All rights reserved.</p>
         <p>Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM</p>
         <p>Điện thoại: 0123 456 789</p>
     </footer>
+    <script type="module" src="./js/purchase.js"></script>
 </body>
 </html>

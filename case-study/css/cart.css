@@ -6,7 +6,6 @@ body {
 }
 main{
     min-height: 65vh;
-    position: relative;
 }
 h2{
     border-left: 2px solid #fff;
@@ -65,12 +64,13 @@ th:first-child{
 }
 #cart-pay {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     padding: 20px;
+    margin-top: 39vh;
     gap : 20px;
     border: 1px solid #ddd;
     background-color: #fff;
-    position: absolute;
+    position: sticky;
     bottom: 0;
     right: 0;
     left: 0;

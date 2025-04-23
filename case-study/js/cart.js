@@ -1,5 +1,12 @@
+import { saveCart } from './script.js';
+import { updateCartCount } from './script.js';
+
+
+
 // Lấy dữ liệu giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let order = JSON.parse(localStorage.getItem("order")) || [];
+
 function openCartMobile(){
     let tableBody = document.getElementById("cart-mobile");
     if (!tableBody) {
@@ -71,7 +78,7 @@ function openCart() {
         let row = document.createElement("tr");
         row.innerHTML = `
             <td style="display: flex; justify-content: space-between; align-items: center;"> 
-                <img src="${item.img}" width="25%" style="border:5px"/>
+                <img src="${item.img}" width="105px" style="border:5px"/>
                 ${item.name}
             </td>
             <td>${item.price.toLocaleString()} đ</td>
@@ -117,6 +124,9 @@ function openCart() {
     }
     
 }
+function saveOrder() {
+    localStorage.setItem("order", JSON.stringify(order));
+}
 function pay() {
     let checkboxes = document.querySelectorAll(".checkbox-buy:checked");
     if (checkboxes.length === 0) {
@@ -127,26 +137,26 @@ function pay() {
     checkboxes.forEach(cb => {
         let id = parseInt(cb.dataset.id);
         const index = cart.findIndex(item => item.id === id);
+        const now = new Date();
+        const datetime = now.toLocaleString();
         if (index !== -1) {
-            // Ở đây bạn có thể xử lý mua hàng hoặc gửi dữ liệu đi server nếu cần
-            console.log(`Mua sản phẩm: ${cart[index].name} - SL: ${cart[index].qty}`);
+            const product = cart[index]; // lấy sản phẩm từ giỏ hàng
+            order.push({ ...product, qty: 1 ,date : `${datetime}`}); // thêm sản phẩm vào đơn mua
+            saveOrder(); // hàm này bạn định nghĩa ở đâu đó để lưu đơn mua
+            removeItem(id);
         }
     });
 
-    // Sau khi xử lý mua hàng, bạn có thể xóa các sản phẩm đó khỏi giỏ:
-    cart = cart.filter(item => {
-        return !Array.from(checkboxes).some(cb => parseInt(cb.dataset.id) === item.id);
-    });
-
-    //saveCart();
+    
     alert("Đặt hàng thành công!");
     
-    // Cập nhật lại giao diện
+    //Cập nhật lại giao diện
     if (window.innerWidth <= 768) {
         openCartMobile();
     } else {
         openCart();
     }
+    
 }
 
 window.pay = pay;
@@ -183,6 +193,7 @@ function updateCheckedTotal() {
 document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 768) {
         openCartMobile(); // Gọi hàm mở giỏ hàng cho mobile
+        document.getElementById("cart-table").style.display="none";
     }
     else {
         openCart(); // Gọi hàm mở giỏ hàng cho desktop

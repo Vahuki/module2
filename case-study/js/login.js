@@ -21,12 +21,12 @@ function loginStore() {
   const found = users.find(u => userLogin.check(u));
 
   if (found) {
-    msg.innerText = "Đăng nhập thành công!";
+    msg.innerText = "Đăng nhập thành công, đang chuyển hướng.";
     localStorage.setItem("isLogin", "true"); // Đánh dấu đã đăng nhập
     localStorage.setItem("currentUser", JSON.stringify(found)); // Lưu user đang đăng nhập
     setTimeout(() => {
       window.location.href = "index.html";
-    }, 1000);
+    }, 2000);
   } else {
     msg.innerText = "Sai tên đăng nhập hoặc mật khẩu!";
     setTimeout(() => {
