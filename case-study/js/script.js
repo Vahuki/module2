@@ -1,25 +1,25 @@
 const products = [
-    { id: 1, name: "Áo thun", price: 150000, img: "img/shirt.jpg" },
-    { id: 2, name: "Quần jeans", price: 250000, img: "img/jeans.jpg"},
-    { id: 3, name: "Giày thể thao", price: 500000, img: "img/giay-the-thao.jpg" },
-    { id: 4, name: "Mũ lưỡi trai", price: 100000, img: "img/mu-luoi-trai.jpg" },
-    { id: 5, name: "Đồng hồ", price: 300000, img: "img/dong-ho.jpg" },
-    { id: 6, name: "Kính mát", price: 200000, img: "img/glasses.jpg" },
-    { id: 7, name: "Balo", price: 400000, img: "img/bag.jpg" },
-    { id: 8, name: "Thắt lưng", price: 120000, img: "img/belt.jpg" },
-    { id: 9, name: "Dép sandal", price: 180000, img: "img/sandal.jpg" },
-    { id: 10, name: "Áo khoác", price: 350000, img: "img/jacket.jpg" },
-    { id: 11, name: "Váy", price: 200000, img: "img/dress.jpg" },
-    { id: 12, name: "Áo sơ mi", price: 220000, img: "img/shirt2.jpg" },
-    { id: 13, name: "Quần short", price: 180000, img: "img/shorts.jpg" },
-    { id: 14, name: "Giày cao gót", price: 600000, img: "img/highheels.jpg" },
-    { id: 15, name: "Áo len", price: 250000, img: "img/sweater.jpg" },
-    { id: 16, name: "Quần thể thao", price: 220000, img: "img/sportpants.jpg" },
-    { id: 17, name: "Áo hoodie", price: 300000, img: "img/hoodie.jpg" },
-    { id: 18, name: "Giày boot", price: 700000, img: "img/boots.jpg" },
-    { id: 19, name: "Áo phao", price: 400000, img: "img/puffer.jpg" },
-    { id: 20, name: "Quần legging", price: 200000, img: "img/legging.jpg" },
-    { id: 21, name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
+    { id: 1,group:"ao", name: "Áo thun", price: 150000, img: "img/shirt.jpg" },
+    { id: 2,group:"quan", name: "Quần jeans", price: 250000, img: "img/jeans.jpg"},
+    { id: 3,group:"giay", name: "Giày thể thao", price: 500000, img: "img/giay-the-thao.jpg" },
+    { id: 4,group:"phukien", name: "Mũ lưỡi trai", price: 100000, img: "img/mu-luoi-trai.jpg" },
+    { id: 5,group:"phukien", name: "Đồng hồ", price: 300000, img: "img/dong-ho.jpg" },
+    { id: 6,group:"phukien", name: "Kính mát", price: 200000, img: "img/glasses.jpg" },
+    { id: 7,group:"phukien", name: "Balo", price: 400000, img: "img/bag.jpg" },
+    { id: 8,group:"phukien", name: "Thắt lưng", price: 120000, img: "img/belt.jpg" },
+    { id: 9,group:"giay", name: "Dép sandal", price: 180000, img: "img/sandal.jpg" },
+    { id: 10,group:"ao", name: "Áo khoác", price: 350000, img: "img/jacket.jpg" },
+    { id: 11,group:"ao", name: "Váy", price: 200000, img: "img/dress.jpg" },
+    { id: 12,group:"ao", name: "Áo sơ mi", price: 220000, img: "img/shirt2.jpg" },
+    { id: 13,group:"quan", name: "Quần short", price: 180000, img: "img/shorts.jpg" },
+    { id: 14,group:"giay", name: "Giày cao gót", price: 600000, img: "img/highheels.jpg" },
+    { id: 15,group:"ao", name: "Áo len", price: 250000, img: "img/sweater.jpg" },
+    { id: 16,group:"quan", name: "Quần thể thao", price: 220000, img: "img/sportpants.jpg" },
+    { id: 17,group:"ao", name: "Áo hoodie", price: 300000, img: "img/hoodie.jpg" },
+    { id: 18,group:"giay", name: "Giày boot", price: 700000, img: "img/boots.jpg" },
+    { id: 19,group:"ao", name: "Áo phao", price: 400000, img: "img/puffer.jpg" },
+    { id: 20,group:"quan", name: "Quần legging", price: 200000, img: "img/legging.jpg" },
+    { id: 21,group:"phukien", name: "Người yêu", price: 9999999999, img: "img/ny.jpg"},
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let order = JSON.parse(localStorage.getItem("order")) || [];
@@ -37,17 +37,22 @@ const products = [
     console.warn("Phần tử với id='search-input' không tồn tại trong DOM.");
   }
   window.showAo = function (){
-     const found = products.filter(product => product.name.toLowerCase().includes("áo"));
+     const found = products.filter(product => product.group.toLowerCase().includes("ao"));
      renderFoundProducts(found);
   };
   window.showQuan = function (){
-    const found = products.filter(product => product.name.toLowerCase().includes("quần"));
+    const found = products.filter(product => product.group.toLowerCase().includes("quan"));
     renderFoundProducts(found);
   };
  window.showGiay = function (){
-  const found = products.filter(product => product.name.toLowerCase().includes("giày"));
+  const found = products.filter(product => product.group.toLowerCase().includes("giay"));
   renderFoundProducts(found);
   };
+ window.showPhukien = function (){
+  const found = products.filter(product => product.group.toLowerCase().includes("phukien"));
+  renderFoundProducts(found);
+  };
+
   
   function renderFoundProducts(foundProducts) {
       const list = document.getElementById("product-list");
