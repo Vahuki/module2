@@ -16,10 +16,8 @@ function openPurchase(){
         let total = 0;
         total += item.price * item.qty;
         row.innerHTML += `
-            <td style="display: flex; justify-content: space-between; align-items: center;"> 
-                <img src="${item.img}" width="105px" style="border:5px"/>
-                ${item.name}
-            </td>
+            <td><img src="${item.img}" width="105px" style="border:5px"/></td>
+            <td>${item.name}</td>
             <td>${item.qty}</td>
             <td>${total}</td>
             <td>${item.date}</td>

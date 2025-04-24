@@ -38,7 +38,7 @@ table {
 }
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 th {
@@ -46,9 +46,7 @@ th {
     font-weight: bold;
     font-size: 14px;
 }
-th:first-child{
-    text-align: right;
-}
+
 footer {
     background-color: #ae1a1a;
     color: white;

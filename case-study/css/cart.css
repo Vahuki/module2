@@ -13,7 +13,7 @@ header{
     height: 152.8px;
 }
 main{
-    min-height: 68vh;
+    min-height: 77vh;
 }
 h2{
     border-left: 2px solid #fff;
@@ -35,8 +35,8 @@ footer {
     background-color: #ae1a1a;
     color: white;
     text-align: center;
-    margin-top: 20px;
     padding: 10px 0;
+    width: 100%;
 }
 table {
     width: 100%;
@@ -45,7 +45,7 @@ table {
 }
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 th {
@@ -53,9 +53,7 @@ th {
     font-weight: bold;
     font-size: 14px;
 }
-th:first-child{
-    text-align: right;
-}
+
 .btn {
     background-color: #ae1a1a;
     color: white;
@@ -71,7 +69,7 @@ th:first-child{
 }
 #cart-pay {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     padding: 20px;
     margin-top: 39vh;
     gap : 20px;
@@ -82,13 +80,19 @@ th:first-child{
     right: 0;
     left: 0;
 }
+#total{
+    padding: 8px;
+    font-size: larger;
+}
 #cart-emty {
     display: flex;
     align-content: center;
     text-align: center;
     height: 400px;
 }
-
+#cart-emty>h2, #cart-emty>p{
+    margin: 20px 0;
+}
 .cart-item-mobile-left{
     display: flex;
     background-color: #fff;
@@ -97,6 +101,9 @@ th:first-child{
     padding-left: 10px;
     flex: 3;
     font-size: 14px;
+}
+.cart-item-mobile-info p:nth-child(2){
+    padding: 10px 0;
 }
 .btn-remove{
     border: none;
@@ -124,5 +131,9 @@ th:first-child{
         padding: 26px;
         font-size: 46px;
         cursor: pointer;
+    }
+    #total{
+        padding: 8px;
+        font-size: large;
     }
 }
