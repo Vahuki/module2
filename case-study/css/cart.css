@@ -133,11 +133,11 @@ th {
         font-size: 46px;
         cursor: pointer;
     }
+    main{
+        min-height: 80vh;
+    }
     #total{
         padding: 8px;
         font-size: large;
-    }
-    main{
-        min-height: 80vh;
     }
 }
