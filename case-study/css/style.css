@@ -6,8 +6,15 @@
 header{
   position: sticky;
   top: 0;
-  margin-bottom: 30px;
   z-index: 5;
+}
+.banner-carousel{
+  padding: 0 50px;
+  
+}
+.banner-carousel img {
+  max-height: 450px;
+  object-fit: cover;
 }
 
 nav{
@@ -44,7 +51,7 @@ nav{
     cursor: pointer;
   }
   #header-navbar a{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
     font-weight: bolder;
@@ -75,18 +82,19 @@ nav{
     
     #cart-count{
       color: black;
-      font-size:20px;
-      padding:0 5px;
+      font-size: 20px;
       border-radius: 50px;
-      background-color: #fff;
       margin-bottom: 26px;
+      position: absolute;
+      top: 33%;
+      color: white;
     }
     
     
-    .cart {
+    .cart  {
         background-color: #ae1a1a; 
         color: #fff;
-        font-size: 18px;
+        font-size: 28px;
         flex: 0.5;
         display: flex;
         justify-content: center;
@@ -98,13 +106,14 @@ nav{
         flex: 0.8;
         background-color: #ae1a1a; 
         color: #fff;
-        font-size: 18px;
+        font-size: 28px;
         justify-content: center;
         align-items: center;
         display: flex;
         flex-direction: column;
         cursor: pointer;
         padding-right:  8px;
+        margin-top: 35px;
     }
    
     #userOptions{
@@ -118,6 +127,9 @@ nav{
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
       font-size: 14px;
+    }
+    #userOptions ul{
+      padding: 0;
     }
     #userOptions ul li {
       list-style-type: none;
@@ -219,36 +231,43 @@ nav{
     background-color: #ae1a1a;
     color: white;
     text-align: center;
-    margin-top: 20px;
     padding: 10px 0;
-    height: 76px;
+    width: 100%;
+    height: 92px;
   }
-  .modal {
+  footer p{
+    margin: 0;
+    font-size: 18.4px;
+  }
+  .modals {
     background: #eee;
     margin-bottom: 10px;
   }
-  .modal h3{
+  .modals h3{
     font-size: 16px;
     background: #ae1a1e;
     color: white;
     padding: 4px;
     cursor: pointer;
   }
-  .modal ul li {
+  .modals ul li {
     list-style-type: none;
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
   }
-  .modal p {
+  .modals p {
     padding: 10px;
     font-size: 16px;
   }
-  .modal ul li:hover{
+  .modals ul li:hover{
     background: #dbdbdb
   }
 
   @media screen and (width <= 1350px) {
+    .banner-carousel{
+      padding: 0;
+    }
     main {
       display: flex;
       margin: 5px;

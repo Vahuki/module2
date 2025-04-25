@@ -84,7 +84,7 @@ export const products = [
       const item = document.createElement("div");
       item.className = "product";
       item.innerHTML = `
-        <div class="content" onclick="showProduct(${p.id})  ">
+        <div class="content" onclick="getID(${p.id})  ">
           <img src="${p.img}" width="100%" />
           <h3>${p.name}</h3>
           <p>${p.price.toLocaleString()} đ</p>
@@ -98,6 +98,9 @@ export const products = [
       list.appendChild(item);
     });
 
+  }
+  window.getID = function (id){
+    window.location.href = `./product.html?id=${id}`;
   }
   window.buy = function (id,button) {
     const isLogin = localStorage.getItem("isLogin");
@@ -152,7 +155,7 @@ export const products = [
     saveCart();
     updateCartCount();
   }
-  function showPlusOne(button) {
+  window.showPlusOne = function(button) {
     const plusOne = document.createElement('span');
     plusOne.classList.add('plus-one');
     plusOne.innerText = '+1';
@@ -176,57 +179,8 @@ export const products = [
         console.warn("Phần tử với id='cart-count' không tồn tại trong DOM.");
     }
   }
-  window.showProduct =function(id) {
-      // Ẩn danh sách sản phẩm
-      document.getElementById("product-list").style.display = "none";
   
-      // Lấy container chính để hiển thị chi tiết
-      const main = document.getElementById("product-main");
-      main.innerHTML="";
-      main.style.display="block";
-      // Tìm sản phẩm theo ID
-      const item = products.find(p => p.id == id);
-      if (!item) {
-          main.innerHTML = "<p style='color: red;'>Sản phẩm không tồn tại.</p>";
-          return;
-      }
-  
-      // Tạo nội dung HTML cho chi tiết sản phẩm
-      const content = document.createElement("div");
-      
-  
-      content.innerHTML = `
-          <div style="">
-                  <img onclick="backToList()" src="./icon/arrow-left.svg" style="width: 30px;">
-          </div>
-          <div style="display:flex; gap:30px; margin-top:20px; flex-wrap:wrap;">
-          <div style="flex: 1; min-width: 300px;">
-              <img src="${item.img}" alt="${item.name}" style="width: 100%; border-radius: 10px;box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);" />
-          </div>
-          <div style="justify-content: space-evenly;display: flex;flex-direction: column;flex: 2; min-width: 300px;">
-              <h2 style="margin-bottom: 10px;">${item.name}</h2>
-              <p><strong>Giá:</strong> ${item.price.toLocaleString()} đ</p>
-              <p><strong>Số lượng:</strong> ${item.sl}</p>
-              <br><br>
-              <div style="margin-top: 20px;display: flex;gap: 10px;">
-                  <button type="button" class="btn" onclick="addToCart(${item.id},this)" >Thêm vào giỏ hàng</button>
-                  <button type="button" class="btn" onclick="buy(${item.id},this)" >Mua Ngay</button>
-              </div>
-          </div>
-          </div>
-          <div>
-          <br>
-          <h3>Chi tiết sản phẩm</h3>
-          <p></p>
-          </div>
-      `;
-  
-      main.appendChild(content);
-  }
-  window.backToList = function() {
-      document.getElementById("product-main").style.display = "none";
-      document.getElementById("product-list").style.display = "grid";
-  }
+ 
 document.addEventListener("DOMContentLoaded", () => {
     
 
