@@ -147,16 +147,22 @@ function pay() {
         }
     });
 
+    Swal.fire({
+        title: "Đặt hàng thành công.",
+        icon: "success",
+        confirmButtonText: "Xem đơn mua", // Đổi tên nút
+        showCancelButton: true,            // Nếu muốn có thêm nút huỷ
+        cancelButtonText: "Tiếp tục mua sắm",   // Tên nút huỷ
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "/purchase.html"; // Link đến trang khác
+        }else if (result.dismiss === Swal.DismissReason.cancel) {
+            // Người dùng chọn "Về trang chủ"
+            window.location.href = "/";
+        }
+    });
     
-    alert("Đặt hàng thành công!");
-    
-    //Cập nhật lại giao diện
-    if (window.innerWidth <= 768) {
-        openCartMobile();
-    } else {
-        openCart();
-    }
-    
+   
 }
 
 window.pay = pay;
