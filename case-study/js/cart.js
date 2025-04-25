@@ -156,10 +156,10 @@ function pay() {
         cancelButtonText: "Tiếp tục mua sắm",   // Tên nút huỷ
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = "/purchase.html"; // Link đến trang khác
+            window.location.href = "./purchase.html"; // Link đến trang khác
         }else if (result.dismiss === Swal.DismissReason.cancel) {
             // Người dùng chọn "Về trang chủ"
-            window.location.href = "/";
+            window.location.href = "./index.html";
         }
     });
     
