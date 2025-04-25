@@ -137,4 +137,7 @@ th {
         padding: 8px;
         font-size: large;
     }
+    main{
+        min-height: 80vh;
+    }
 }
