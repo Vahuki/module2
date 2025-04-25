@@ -1,4 +1,4 @@
-const products = [
+export const products = [
     { id: 1,group:"ao", name: "Áo thun", price: 150000,sl: 11, img: "img/shirt.jpg" },
     { id: 2,group:"quan", name: "Quần jeans", price: 250000,sl: 11, img: "img/jeans.jpg"},
     { id: 3,group:"giay", name: "Giày thể thao", price: 500000,sl: 11, img: "img/giay-the-thao.jpg" },
@@ -182,9 +182,9 @@ const products = [
               <p><strong>Giá:</strong> ${item.price.toLocaleString()} đ</p>
               <p><strong>Số lượng:</strong> ${item.sl}</p>
               <br><br>
-              <div style="margin-top: 20px;">
-                  <button onclick="(${item.id})" style="padding: 10px 20px; background: red; color: white; border: none; border-radius: 5px;cursor: pointer;">Thêm vào giỏ hàng</button>
-                  <button onclick="(${item.id})" style="padding: 10px 20px; background: red; color: white; border: none; border-radius: 5px;cursor: pointer;">Mua Ngay</button>
+              <div style="margin-top: 20px;display: flex;gap: 10px;">
+                  <button class="btn" onclick="addToCart(${item.id})" >Thêm vào giỏ hàng</button>
+                  <button class="btn" onclick="buy(${item.id})" >Mua Ngay</button>
               </div>
           </div>
           </div>

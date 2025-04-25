@@ -1,6 +1,7 @@
 import { saveCart } from './script.js';
 import { updateCartCount } from './script.js';
 import { checkLogin } from './script.js';
+import { products } from './script.js';
 
 
 // Lấy dữ liệu giỏ hàng từ localStorage hoặc khởi tạo mảng rỗng

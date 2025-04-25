@@ -173,7 +173,19 @@ nav{
     color: #ae1a1a;
     border: 1px solid #ae1a1a;
   }
-  
+  #product-main .btn {
+    padding: 10px 10px; 
+    background:#ae1a1a; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #product-main .btn:hover{
+    background:#fff;
+    color: #ae1a1a;
+    border: 1px solid;
+  }
   footer {
     background-color: #ae1a1a;
     color: white;
@@ -270,9 +282,7 @@ nav{
         justify-content: center ;
         align-items: left;
     }
-    #search-btn{
-       display: none;
-    }
+    
     #search-input{
       box-sizing: border-box;
       width: 100%;
@@ -293,6 +303,7 @@ nav{
       gap: 10px;
       margin: 0;
     }
+   
     #header-navbar{
       padding: 5px 5px 0 0;
     }
