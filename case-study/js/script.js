@@ -68,8 +68,8 @@ export const products = [
                   <p>Đánh giá: ${"⭐".repeat(5)}</p>
               </div>
               <div class="product-actions" style="justify-content: space-between; display: flex; margin-top: 10px;">
-                  <button onclick="addToCart(${p.id})">Thêm vào giỏ</button>
-                  <button onclick="buy(${p.id})">Mua ngay</button>
+                  <button onclick="addToCart(${p.id},this)">Thêm vào giỏ</button>
+                  <button onclick="buy(${p.id},this)">Mua ngay</button>
               </div>
           `;
           list.appendChild(item);
@@ -91,22 +91,31 @@ export const products = [
           <p>Đánh giá: ${"⭐".repeat(5)}</p>
         </div>
         <div class="product-actions" style ="justify-content: space-between; display: flex; margin-top: 10px;">
-          <button onclick="addToCart(${p.id})">Thêm vào giỏ</button>
-          <button onclick="buy(${p.id})">Mua ngay</button>
+          <button onclick="addToCart(${p.id},this)">Thêm vào giỏ</button>
+          <button onclick="buy(${p.id},this)">Mua ngay</button>
         </div>
       `;
       list.appendChild(item);
     });
 
   }
-  window.buy = function (id) {
+  window.buy = function (id,button) {
     const isLogin = localStorage.getItem("isLogin");
     if (checkLogin()) {
-      addToCart(id);
+      addToCart(id,button);
       window.location.href='./cart.html'; // Chuyển hướng đến trang giỏ hàng
     }else{
-      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
-      window.location.href='./login.html';
+      Swal.fire({
+        title: 'Bạn cần đăng nhập để tiếp tục mua sắm.',
+        icon: 'error',
+        showConfirmButton: true,   // Ẩn nút OK
+        confirmButtonText: "Đăng Nhập", // Đổi tên nút
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = './login.html';
+        }
+      });
+      return;
     }
   }
   export function checkLogin() {
@@ -118,10 +127,18 @@ export const products = [
     }
   }
 
-  window.addToCart = function(id) {
+  window.addToCart = function(id,button) {
     if (!checkLogin()) {
-      alert("Bạn cần đăng nhập để tiếp tục mua sắm.");
-      window.location.href='./login.html';
+      Swal.fire({
+        title: 'Bạn cần đăng nhập để tiếp tục mua sắm.',
+        icon: 'error',
+        showConfirmButton: true,   // Ẩn nút OK
+        confirmButtonText: "Đăng Nhập", // Đổi tên nút
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = './login.html';
+        }
+      });
       return;
     }
     const index = cart.findIndex(item => item.id === id);
@@ -131,11 +148,21 @@ export const products = [
       const product = products.find(p => p.id === id);
       cart.push({ ...product, qty: 1 });
     }
+    showPlusOne(button);
     saveCart();
     updateCartCount();
-    
-
   }
+  function showPlusOne(button) {
+    const plusOne = document.createElement('span');
+    plusOne.classList.add('plus-one');
+    plusOne.innerText = '+1';
+    button.appendChild(plusOne);
+  
+    setTimeout(() => {
+      plusOne.remove();
+    }, 1000); // thời gian giống với animation
+  }
+  
   
   export function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -174,8 +201,7 @@ export const products = [
           </div>
           <div style="display:flex; gap:30px; margin-top:20px; flex-wrap:wrap;">
           <div style="flex: 1; min-width: 300px;">
-              <img src="${item.img}" alt="${item.name}" style="width: 100%; border-radius: 10px;box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-" />
+              <img src="${item.img}" alt="${item.name}" style="width: 100%; border-radius: 10px;box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);" />
           </div>
           <div style="justify-content: space-evenly;display: flex;flex-direction: column;flex: 2; min-width: 300px;">
               <h2 style="margin-bottom: 10px;">${item.name}</h2>
@@ -183,8 +209,8 @@ export const products = [
               <p><strong>Số lượng:</strong> ${item.sl}</p>
               <br><br>
               <div style="margin-top: 20px;display: flex;gap: 10px;">
-                  <button class="btn" onclick="addToCart(${item.id})" >Thêm vào giỏ hàng</button>
-                  <button class="btn" onclick="buy(${item.id})" >Mua Ngay</button>
+                  <button type="button" class="btn" onclick="addToCart(${item.id},this)" >Thêm vào giỏ hàng</button>
+                  <button type="button" class="btn" onclick="buy(${item.id},this)" >Mua Ngay</button>
               </div>
           </div>
           </div>
