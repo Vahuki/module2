@@ -184,6 +184,7 @@ export const products = [
     }
   }
   
+  
  
 document.addEventListener("DOMContentLoaded", () => {
     

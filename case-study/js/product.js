@@ -55,10 +55,17 @@ function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
-
+function scrollToPosition() {
+    window.scrollTo({
+      top: 450, // Cuộn đến vị trí 500px từ đầu trang
+      behavior: 'smooth', // Cuộn mượt mà
+    });
+  }
+  
 const id = getQueryParam("id");
 if (id) {
     showProduct(id); // Gọi hàm đã có sẵn trong script.js của bạn
+    scrollToPosition()
 } else {
     document.getElementById("product-main").innerHTML = "<p style='color:red;'>Không tìm thấy sản phẩm.</p>";
 }
