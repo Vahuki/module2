@@ -160,7 +160,11 @@ export const products = [
     plusOne.classList.add('plus-one');
     plusOne.innerText = '+1';
     button.appendChild(plusOne);
-  
+    // Thiết lập vị trí tương đối cho button nếu chưa có
+    if (getComputedStyle(button).position === 'static') {
+      button.style.position = 'relative';
+    }
+
     setTimeout(() => {
       plusOne.remove();
     }, 1000); // thời gian giống với animation

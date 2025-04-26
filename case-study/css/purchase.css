@@ -47,29 +47,22 @@ th {
     font-size: 14px;
 }
 
-footer {
-    background-color: #ae1a1a;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    
-}
+
 @media (max-width: 768px) {
     
     header{
         box-sizing: border-box;
-        height: 104px;
+        height: 100px;
     }
     
     .head-purchase > img {
-        width: 104px;
-        height: 104px;
+        width: 100px;
+        height: 100px;
     }
     .head-purchase h2 {
         color: white;
-        padding: 26px;
-        font-size: 46px;
+        padding: 24px;
+        font-size: 45px;
         cursor: pointer;
     }
     main{

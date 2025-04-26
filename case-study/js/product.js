@@ -31,7 +31,7 @@ window.showProduct =function(id) {
             <p><strong>Số lượng:</strong> ${item.sl}</p>
             <br><br>
             <div style="margin-top: 20px;display: flex;gap: 10px;">
-                <button type="button" class="btn" onclick="addToCart(${item.id},this)" >Thêm vào giỏ hàng</button>
+                <button type="button" class="btn" onclick="addToCart(${item.id},this);" >Thêm vào giỏ hàng</button>
                 <button type="button" class="btn" onclick="buy(${item.id},this)" >Mua Ngay</button>
             </div>
         </div>
