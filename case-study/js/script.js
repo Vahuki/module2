@@ -194,9 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
       document.getElementById("user-name").innerText = currentUser.name;
+      
+
 
     }else{
       document.getElementById("userOptions").style.display = "none";
+      document.getElementById("user-icon").style.fontSize = "35px";
+      document.getElementById("user-icon").style.marginTop = "20px";
     }
     const list = document.getElementById("product-list");
     if (list) {

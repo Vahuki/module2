@@ -11,11 +11,13 @@ header{
 }
 .banner-carousel{
   padding: 0 50px;
-  
 }
 .banner-carousel img {
   max-height: 450px;
   object-fit: cover;
+}
+.carousel-item {
+  transition: transform 1.5s ease; /* chuyển ảnh chậm hơn, đều hơn */
 }
 
 nav{
@@ -260,7 +262,7 @@ nav{
   }
   @media screen and (width <= 1350px) {
     .banner-carousel{
-      padding: 0;
+      padding: 0 5px;
     }
     main {
       display: flex;
@@ -298,6 +300,9 @@ nav{
     }
   }
   @media screen and (width <= 768px) {
+    .banner-carousel{
+      padding: 0;
+    }
     main{
       margin: 0;
     }
