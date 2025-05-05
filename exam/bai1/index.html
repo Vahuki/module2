@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Nhập số phần tử của mảng (tối đa 50):"));
+        if (n > 50) {
+            alert("Số phần tử không được lớn hơn 50.");
+        } else {
+            var arr = [];
+            for (var i = 0; i < n; i++) {
+                arr[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+            }
+
+            var sum = 0;
+            var count = 0;
+
+            for (var i = 0; i < n; i++) {
+                if (i % 2 === 0 && arr[i] % 2 !== 0) { 
+                    sum += arr[i];
+                    count++;
+                }
+            }
+
+            if (count > 0) {
+                var average = sum / count;
+                alert("Mảng vừa nhập là: " + arr);
+                alert("Trung bình cộng các số lẻ ở vị trí chẵn là: " + average);
+            } else {
+                alert("Mảng vừa nhập là: " + arr);
+                alert("Không có số lẻ ở vị trí chẵn trong mảng.");
+            }
+        }
+    </script>
+</body>
+</html>

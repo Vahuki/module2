@@ -1,5 +1,6 @@
 import { products } from './script.js';
 
+
 window.showProduct =function(id) {
     // window.location.href = './product.html';
       
@@ -48,8 +49,6 @@ window.showProduct =function(id) {
 window.backToList = function() {
     window.location.href = './index.html';
 }
-
-// showProduct(id);
 // Hàm lấy giá trị của query param từ URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -60,12 +59,12 @@ function scrollToPosition() {
       top: 450, // Cuộn đến vị trí 500px từ đầu trang
       behavior: 'smooth', // Cuộn mượt mà
     });
-  }
+}
   
 const id = getQueryParam("id");
 if (id) {
-    showProduct(id); // Gọi hàm đã có sẵn trong script.js của bạn
-    scrollToPosition()
+    showProduct(id); 
+    scrollToPosition();
 } else {
     document.getElementById("product-main").innerHTML = "<p style='color:red;'>Không tìm thấy sản phẩm.</p>";
 }

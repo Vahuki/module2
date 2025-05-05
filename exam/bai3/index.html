@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 40px auto;
+            
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #c2c2c2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .option-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Quản lý sách</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Mã số sách</th>
+                <th>Tên sách</th>
+                <th>Năm xuất bản</th>
+                <th>Số lượng</th>
+                <th>Tình trạng </th>
+            </tr>
+        </thead>
+        <tbody id="books-table"></tbody>
+    </table>
+    <div class="option-btn">
+        <button id="add-sl-book-btn" onclick="addOldBook()">Thêm sách đã có</button>
+        <button id="add-new-book-btn" onclick="addNewBook()">Thêm sách mới</button>
+        <button id="rent-book-btn" onclick="rentBook()">Mượn sách</button> 
+        <button id="arrange-book-btn" onclick="showMostBook()">Hiển thị sách nhiều nhất</button>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

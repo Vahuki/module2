@@ -23,12 +23,18 @@ export const products = [
   ];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let order = JSON.parse(localStorage.getItem("order")) || [];
-  
+  function scrollToPosition() {
+    window.scrollTo({
+      top: 450, // Cuộn đến vị trí 500px từ đầu trang
+      behavior: 'smooth', // Cuộn mượt mà
+    });
+}
   const searchInput = document.getElementById("search-input");
   function findProducts() {
       const query = searchInput.value.toLowerCase();
       const found = products.filter(product => product.name.toLowerCase().includes(query));
       renderFoundProducts(found);
+      scrollToPosition();
   }
   // Gắn sự kiện keydown vào phần tử DOM
   if (searchInput) {
@@ -39,18 +45,22 @@ export const products = [
   window.showAo = function (){
      const found = products.filter(product => product.group.toLowerCase().includes("ao"));
      renderFoundProducts(found);
+     scrollToPosition();
   };
   window.showQuan = function (){
     const found = products.filter(product => product.group.toLowerCase().includes("quan"));
     renderFoundProducts(found);
+    scrollToPosition();
   };
  window.showGiay = function (){
   const found = products.filter(product => product.group.toLowerCase().includes("giay"));
   renderFoundProducts(found);
+  scrollToPosition();
   };
  window.showPhukien = function (){
   const found = products.filter(product => product.group.toLowerCase().includes("phukien"));
   renderFoundProducts(found);
+  scrollToPosition();
   };
 
   
@@ -61,7 +71,7 @@ export const products = [
           const item = document.createElement("div");
           item.className = "product";
           item.innerHTML = `
-              <div class="content" onclick="showProduct(${p.id})">
+              <div class="content" onclick="getID(${p.id}) ">
                   <img src="${p.img}" width="100%" />
                   <h3>${p.name}</h3>
                   <p>${p.price.toLocaleString()} đ</p>

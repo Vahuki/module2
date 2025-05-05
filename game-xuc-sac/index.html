@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xúc Xắc Dự Đoán</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #e0e0e0;
+      perspective: 1000px;
+      font-family: sans-serif;
+    }
+    .cube {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(0deg) rotateY(0deg);
+      transition: transform 1s;
+    }
+    .cube-face {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: white;
+      border: 2px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+    }
+    .front  { transform: rotateY(0deg) translateZ(75px); }
+    .back   { transform: rotateY(180deg) translateZ(75px); }
+    .right  { transform: rotateY(90deg) translateZ(75px); }
+    .left   { transform: rotateY(-90deg) translateZ(75px); }
+    .top    { transform: rotateX(90deg) translateZ(75px); }
+    .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+    .dots { position: relative; width: 100%; height: 100%; }
+    .dots div { width: 20px; height: 20px; background: black; border-radius: 50%; position: absolute; }
+
+    .dots-1 div:nth-child(1) {top:50%;left:50%;transform:translate(-50%,-50%);}
+    .dots-2 div:nth-child(1) {top:25%;left:25%;}
+    .dots-2 div:nth-child(2) {bottom:25%;right:25%;}
+    .dots-3 div:nth-child(1) {top:25%;left:25%;}
+    .dots-3 div:nth-child(2) {top:50%;left:50%;transform:translate(-50%,-50%);}
+    .dots-3 div:nth-child(3) {bottom:25%;right:25%;}
+    .dots-4 div:nth-child(1) {top:25%;left:25%;}
+    .dots-4 div:nth-child(2) {top:25%;right:25%;}
+    .dots-4 div:nth-child(3) {bottom:25%;left:25%;}
+    .dots-4 div:nth-child(4) {bottom:25%;right:25%;}
+    .dots-5 div:nth-child(1) {top:25%;left:25%;}
+    .dots-5 div:nth-child(2) {top:25%;right:25%;}
+    .dots-5 div:nth-child(3) {bottom:25%;left:25%;}
+    .dots-5 div:nth-child(4) {bottom:25%;right:25%;}
+    .dots-5 div:nth-child(5) {top:50%;left:50%;transform:translate(-50%,-50%);}
+    .dots-6 div:nth-child(1) {top:20%;left:25%;}
+    .dots-6 div:nth-child(2) {top:20%;right:25%;}
+    .dots-6 div:nth-child(3) {top:50%;left:25%;transform:translateY(-50%);}
+    .dots-6 div:nth-child(4) {top:50%;right:25%;transform:translateY(-50%);}
+    .dots-6 div:nth-child(5) {bottom:20%;left:25%;}
+    .dots-6 div:nth-child(6) {bottom:20%;right:25%;}
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .controls button {
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background: #555;
+    }
+
+    .prediction, .result, .current-face {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .prediction select {
+      padding: 5px 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cube" id="cube">
+  <div class="cube-face front"><div class="dots dots-1"><div></div></div></div>
+  <div class="cube-face back"><div class="dots dots-2"><div></div><div></div></div></div>
+  <div class="cube-face right"><div class="dots dots-3"><div></div><div></div><div></div></div></div>
+  <div class="cube-face left"><div class="dots dots-4"><div></div><div></div><div></div><div></div></div></div>
+  <div class="cube-face top"><div class="dots dots-5"><div></div><div></div><div></div><div></div><div></div></div></div>
+  <div class="cube-face bottom"><div class="dots dots-6"><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+</div>
+
+<div class="prediction">
+  Dự đoán mặt:
+  <select id="predictionSelect">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>
+</div>
+
+<div class="controls">
+  <button onclick="roll()">Quay Xúc Xắc</button>
+</div>
+
+<div class="current-face" id="currentFace">Mặt hiện tại: 1</div>
+<div class="result" id="resultText">Kết quả: Chưa quay</div>
+
+<script>
+  const cube = document.getElementById('cube');
+  const currentFaceDisplay = document.getElementById('currentFace');
+  const resultText = document.getElementById('resultText');
+  const predictionSelect = document.getElementById('predictionSelect');
+
+  const faces = [
+    { x: 0,   y: 0   },    // 1
+    { x: 0,   y: 180 },    // 2
+    { x: 0,   y: -90 },    // 3
+    { x: 0,   y: 90  },    // 4
+    { x: -90, y: 0   },    // 5
+    { x: 90,  y: 0   },    // 6
+  ];
+
+  let currentFace = 1;
+
+  function showFace(number) {
+    const face = faces[number - 1];
+    cube.style.transform = `rotateX(${face.x}deg) rotateY(${face.y}deg)`;
+    currentFace = number;
+    currentFaceDisplay.innerText = `Mặt hiện tại: ${currentFace}`;
+  }
+
+  function roll() {
+    const random = Math.floor(Math.random() * 6) + 1;
+    showFace(random);
+    checkResult(random);
+  }
+
+  function checkResult(rolledFace) {
+    const prediction = parseInt(predictionSelect.value);
+    if (prediction === rolledFace) {
+      resultText.innerText = "🎉 Đúng rồi!";
+      resultText.style.color = "green";
+    } else {
+      resultText.innerText = "❌ Sai mất rồi!";
+      resultText.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
